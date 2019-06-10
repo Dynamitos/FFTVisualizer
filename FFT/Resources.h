@@ -1,0 +1,230 @@
+#pragma once
+#include <AL/al.h>
+#include <stdint.h>
+#include <string>
+#include <vector>
+extern "C"
+{
+#include <libswresample/swresample.h>
+#include <libavutil/opt.h>
+}
+
+struct ConverterInitInfo
+{
+	int inSampleRate;
+	int outSampleRate;
+	int inChannelCount;
+	int outChannelCount;
+	uint64_t inChannelLayout;
+	uint64_t outChannelLayout;
+	AVSampleFormat inSampleFormat;
+	AVSampleFormat outSampleFormat;
+};
+
+struct PlayerInitInfo
+{
+	int numBuffers;
+};
+
+struct ProcessorInitInfo
+{
+	uint32_t fftSize;
+};
+struct AudioInputContainer
+{
+	AudioInputContainer()
+		: samples{ nullptr }
+		, allocatedChannels{ 0 }
+		, allocatedData{ 0 }
+		, numSamples{ 0 }
+		, numChannels{ 0 }
+		, dataSize{ 0 }
+	{
+	}
+	AudioInputContainer(const AudioInputContainer& copy)
+		: allocatedChannels{ copy.allocatedChannels }
+		, allocatedData{ copy.allocatedData }
+		, numSamples{ copy.numSamples }
+		, numChannels{ copy.numChannels }
+		, dataSize{ copy.dataSize }
+	{
+		samples = new uint8_t * [copy.allocatedChannels];
+		for (uint32_t i = 0; i < copy.allocatedChannels; ++i)
+		{
+			samples[i] = new uint8_t[copy.allocatedData];
+			std::memcpy(samples[i], copy.samples[i], copy.allocatedData);
+		}
+	}
+	AudioInputContainer(AudioInputContainer&& copy) noexcept
+		: allocatedChannels{ std::move(copy.allocatedChannels) }
+		, allocatedData{ std::move(copy.allocatedData) }
+		, numSamples{ std::move(copy.numSamples) }
+		, numChannels{ std::move(copy.numChannels) }
+		, dataSize{ std::move(copy.dataSize) }
+	{
+		samples = copy.samples;
+		copy.samples = nullptr;
+		copy.allocatedChannels = 0;
+		copy.allocatedData = 0;
+		copy.numSamples = 0;
+		copy.numSamples = 0;
+		copy.dataSize = 0;
+	}
+
+	AudioInputContainer& operator=(const AudioInputContainer& other)
+	{
+		if (this != &other)
+		{
+			if (samples != nullptr)
+			{
+				for (uint32_t i = 0; i < allocatedChannels; ++i)
+				{
+					delete[] samples[i];
+				}
+				delete[] samples;
+			}
+			samples = new uint8_t * [other.allocatedChannels];
+			for (uint32_t i = 0; i < other.allocatedChannels; ++i)
+			{
+				samples[i] = new uint8_t[other.allocatedData];
+				std::memcpy(samples[i], other.samples[i], other.allocatedData);
+			}
+
+			allocatedChannels = other.allocatedChannels;
+			allocatedData = other.allocatedData;
+			numChannels = other.numChannels;
+			numSamples = other.numSamples;
+			dataSize = other.dataSize;
+
+			return *this;
+		}
+	}
+
+	AudioInputContainer& operator=(AudioInputContainer&& other) noexcept
+	{
+		if (this != &other)
+		{
+			//destroy current state
+			if (samples != nullptr)
+			{
+				for (uint32_t i = 0; i < allocatedChannels; ++i)
+				{
+					delete[] samples[i];
+				}
+				delete[] samples;
+			}
+
+			samples = other.samples;
+			other.samples = nullptr;
+			allocatedChannels = std::move(other.allocatedChannels);
+			allocatedData = std::move(other.allocatedData);
+			numChannels = std::move(other.numChannels);
+			numSamples = std::move(other.numSamples);
+			dataSize = std::move(other.dataSize);
+			return *this;
+		}
+	}
+	~AudioInputContainer()
+	{
+		//free all channel buffers
+		if (samples != nullptr)
+		{
+			//already allocated, free existing resources
+			for (uint32_t i = 0; i < allocatedChannels; ++i)
+			{
+				//delete channel data
+				delete[] samples[i];
+			}
+			delete samples;
+		}
+	}
+	uint8_t** samples = nullptr;
+	//used to track allocations of the buffer, may be bigger that usable portion
+	uint32_t allocatedChannels = 0;
+	uint32_t allocatedData = 0;
+	uint32_t numSamples;
+	uint32_t numChannels;
+	uint32_t dataSize = 0;
+};
+
+struct ConvertedSampleContainer
+{
+	ConvertedSampleContainer()
+		: convertedSamples{ nullptr }
+		, dataSize{ 0 }
+		, numSamples{ 0 }
+	{
+
+	}
+	ConvertedSampleContainer(const ConvertedSampleContainer& copy)
+		: dataSize{ copy.dataSize }
+		, numSamples{ copy.numSamples }
+	{
+		convertedSamples = new uint8_t[copy.dataSize];
+		std::memcpy(convertedSamples, copy.convertedSamples, copy.dataSize);
+	}
+	ConvertedSampleContainer(ConvertedSampleContainer&& copy) noexcept
+		: dataSize{ std::move(copy.dataSize) }
+		, numSamples{ std::move(copy.numSamples) }
+	{
+		if (convertedSamples != nullptr)
+		{
+			delete[] convertedSamples;
+		}
+		convertedSamples = new uint8_t[dataSize];
+		std::memcpy(convertedSamples, copy.convertedSamples, dataSize);
+		delete[] copy.convertedSamples;
+		copy.convertedSamples = nullptr;
+	}
+	ConvertedSampleContainer& operator=(ConvertedSampleContainer& other)
+	{
+		if (this != &other)
+		{
+			if (convertedSamples != nullptr)
+			{
+				delete[] convertedSamples;
+			}
+			
+			convertedSamples = new uint8_t[other.dataSize];
+			std::memcpy(convertedSamples, other.convertedSamples, other.dataSize);
+			dataSize = other.dataSize;
+			numSamples = other.numSamples;
+
+			return *this;
+		}
+	}
+
+	ConvertedSampleContainer& operator=(ConvertedSampleContainer&& other) noexcept
+	{
+		if (this != &other)
+		{
+			if (convertedSamples != nullptr)
+			{
+				delete[] convertedSamples;
+			}
+			dataSize = std::move(other.dataSize);
+			numSamples = std::move(other.numSamples);
+			convertedSamples = new uint8_t[dataSize];
+			std::memcpy(convertedSamples, other.convertedSamples, dataSize);
+			delete[] other.convertedSamples;
+			other.convertedSamples = nullptr;
+
+			return *this;
+		}
+	}
+	~ConvertedSampleContainer()
+	{
+		if (convertedSamples != nullptr)
+		{
+			delete[] convertedSamples;
+		}
+	}
+	uint8_t* convertedSamples = nullptr;
+	uint32_t dataSize = 0;
+	uint32_t numSamples;
+};
+
+struct AudioSourceInfo
+{
+	const char* url;
+};
