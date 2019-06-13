@@ -13,12 +13,11 @@ public:
 
 	}
 
-	void run(PacketQueue<ConvertedSampleContainer>* queue)
+	void run(PacketQueue<SampleContainer>* queue)
 	{
 		while (!queue->isFinished())
 		{
-			std::unique_ptr<ConvertedSampleContainer> input = queue->popPacket();
-			playSamples(std::move(input));
+			playSamples(std::move(queue->popPacket()));
 		}
 	}
 
@@ -39,7 +38,7 @@ public:
 	* Takes a batch of already converted audio samples and queues them into the audio buffer.
 	* To know which format this has to be converted to, call finalizeConverterInfo first
 	*/
-	virtual void playSamples(std::unique_ptr<ConvertedSampleContainer> container) = 0;
+	virtual void playSamples(std::unique_ptr<SampleContainer> container) = 0;
 
 private:
 

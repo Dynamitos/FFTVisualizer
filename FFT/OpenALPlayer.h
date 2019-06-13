@@ -11,7 +11,7 @@ public:
 	OpenALPlayer();
 	~OpenALPlayer();
 	virtual void init(PlayerInitInfo initInfo);
-	virtual void playSamples(std::unique_ptr<ConvertedSampleContainer> container);
+	virtual void playSamples(std::unique_ptr<SampleContainer> container);
 	virtual void finalizeConverterInfo(ConverterInitInfo& converterInfo);
 private:
 	ALCdevice* dev;

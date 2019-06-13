@@ -31,20 +31,23 @@ SampleConverter::~SampleConverter()
 	swr_free(&swrContext);
 }
 
-void SampleConverter::run(PacketQueue<AudioInputContainer>* inputQueue, PacketQueue<ConvertedSampleContainer>* outputQueue)
+void SampleConverter::run(PacketQueue<AudioInputContainer>* inputQueue, PacketQueue<SampleContainer>* outputQueue)
 {
+	uint32_t totalNumPackets = 0;
 	while (!inputQueue->isFinished())
 	{
 		std::unique_ptr<AudioInputContainer> input = inputQueue->popPacket();
-		std::unique_ptr<ConvertedSampleContainer> output = convertFrame(std::move(input));
+		std::unique_ptr<SampleContainer> output = convertFrame(std::move(input));
 		outputQueue->addToQueue(std::move(output));
+		totalNumPackets++;
 	}
 	outputQueue->signalFinished();
+	std::cout << totalNumPackets << " converted" << std::endl;
 }
 
-std::unique_ptr<ConvertedSampleContainer> SampleConverter::convertFrame(std::unique_ptr<AudioInputContainer> container)
+std::unique_ptr<SampleContainer> SampleConverter::convertFrame(std::unique_ptr<AudioInputContainer> container)
 {
-	std::unique_ptr<ConvertedSampleContainer> result = std::make_unique<ConvertedSampleContainer>();
+	std::unique_ptr<SampleContainer> result = std::make_unique<SampleContainer>();
 	uint64_t maxBytes = av_samples_get_buffer_size(nullptr, initInfo.outChannelCount, container->numSamples, initInfo.outSampleFormat, 1);
 	
 	if (result->dataSize < maxBytes) {
@@ -64,6 +67,7 @@ std::unique_ptr<ConvertedSampleContainer> SampleConverter::convertFrame(std::uni
 		throw new std::logic_error("Error while converting\n");
 	}
 
+	result->timeStamp = container->timeStamp;
 	result->numSamples = container->numSamples;
 	return result;
 }

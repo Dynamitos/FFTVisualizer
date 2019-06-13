@@ -12,7 +12,7 @@ public:
 	// Inherited via AudioPlayer
 	virtual void init(PlayerInitInfo initInfo) override;
 	virtual void finalizeConverterInfo(ConverterInitInfo& converterInfo) override;
-	virtual void playSamples(std::unique_ptr<ConvertedSampleContainer> container) override;
+	virtual void playSamples(std::unique_ptr<SampleContainer> container) override;
 private:
 	IMMDeviceEnumerator* pEnumerator = NULL;
 	IMMDevice* pDevice = NULL;

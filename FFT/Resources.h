@@ -39,6 +39,7 @@ struct AudioInputContainer
 		, numSamples{ 0 }
 		, numChannels{ 0 }
 		, dataSize{ 0 }
+		, timeStamp{ 0 }
 	{
 	}
 	AudioInputContainer(const AudioInputContainer& copy)
@@ -47,6 +48,7 @@ struct AudioInputContainer
 		, numSamples{ copy.numSamples }
 		, numChannels{ copy.numChannels }
 		, dataSize{ copy.dataSize }
+		, timeStamp{ copy.timeStamp }
 	{
 		samples = new uint8_t * [copy.allocatedChannels];
 		for (uint32_t i = 0; i < copy.allocatedChannels; ++i)
@@ -61,6 +63,7 @@ struct AudioInputContainer
 		, numSamples{ std::move(copy.numSamples) }
 		, numChannels{ std::move(copy.numChannels) }
 		, dataSize{ std::move(copy.dataSize) }
+		, timeStamp{ std::move(copy.timeStamp) }
 	{
 		samples = copy.samples;
 		copy.samples = nullptr;
@@ -69,6 +72,7 @@ struct AudioInputContainer
 		copy.numSamples = 0;
 		copy.numSamples = 0;
 		copy.dataSize = 0;
+		copy.timeStamp = 0;
 	}
 
 	AudioInputContainer& operator=(const AudioInputContainer& other)
@@ -95,6 +99,7 @@ struct AudioInputContainer
 			numChannels = other.numChannels;
 			numSamples = other.numSamples;
 			dataSize = other.dataSize;
+			timeStamp = other.timeStamp;
 
 			return *this;
 		}
@@ -121,6 +126,8 @@ struct AudioInputContainer
 			numChannels = std::move(other.numChannels);
 			numSamples = std::move(other.numSamples);
 			dataSize = std::move(other.dataSize);
+			timeStamp = std::move(other.timeStamp);
+
 			return *this;
 		}
 	}
@@ -145,27 +152,31 @@ struct AudioInputContainer
 	uint32_t numSamples;
 	uint32_t numChannels;
 	uint32_t dataSize = 0;
+	int64_t timeStamp;
 };
 
-struct ConvertedSampleContainer
+struct SampleContainer
 {
-	ConvertedSampleContainer()
+	SampleContainer()
 		: convertedSamples{ nullptr }
 		, dataSize{ 0 }
 		, numSamples{ 0 }
+		, timeStamp{ 0 }
 	{
 
 	}
-	ConvertedSampleContainer(const ConvertedSampleContainer& copy)
+	SampleContainer(const SampleContainer& copy)
 		: dataSize{ copy.dataSize }
 		, numSamples{ copy.numSamples }
+		, timeStamp{ copy.timeStamp }
 	{
 		convertedSamples = new uint8_t[copy.dataSize];
 		std::memcpy(convertedSamples, copy.convertedSamples, copy.dataSize);
 	}
-	ConvertedSampleContainer(ConvertedSampleContainer&& copy) noexcept
+	SampleContainer(SampleContainer&& copy) noexcept
 		: dataSize{ std::move(copy.dataSize) }
 		, numSamples{ std::move(copy.numSamples) }
+		, timeStamp{ std::move(copy.timeStamp) }
 	{
 		if (convertedSamples != nullptr)
 		{
@@ -176,7 +187,7 @@ struct ConvertedSampleContainer
 		delete[] copy.convertedSamples;
 		copy.convertedSamples = nullptr;
 	}
-	ConvertedSampleContainer& operator=(ConvertedSampleContainer& other)
+	SampleContainer& operator=(SampleContainer& other)
 	{
 		if (this != &other)
 		{
@@ -189,12 +200,13 @@ struct ConvertedSampleContainer
 			std::memcpy(convertedSamples, other.convertedSamples, other.dataSize);
 			dataSize = other.dataSize;
 			numSamples = other.numSamples;
+			timeStamp = other.timeStamp;
 
 			return *this;
 		}
 	}
 
-	ConvertedSampleContainer& operator=(ConvertedSampleContainer&& other) noexcept
+	SampleContainer& operator=(SampleContainer&& other) noexcept
 	{
 		if (this != &other)
 		{
@@ -204,6 +216,7 @@ struct ConvertedSampleContainer
 			}
 			dataSize = std::move(other.dataSize);
 			numSamples = std::move(other.numSamples);
+			timeStamp = std::move(other.timeStamp);
 			convertedSamples = new uint8_t[dataSize];
 			std::memcpy(convertedSamples, other.convertedSamples, dataSize);
 			delete[] other.convertedSamples;
@@ -212,7 +225,7 @@ struct ConvertedSampleContainer
 			return *this;
 		}
 	}
-	~ConvertedSampleContainer()
+	~SampleContainer()
 	{
 		if (convertedSamples != nullptr)
 		{
@@ -222,6 +235,7 @@ struct ConvertedSampleContainer
 	uint8_t* convertedSamples = nullptr;
 	uint32_t dataSize = 0;
 	uint32_t numSamples;
+	int64_t timeStamp;
 };
 
 struct AudioSourceInfo

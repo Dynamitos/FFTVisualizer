@@ -1,4 +1,5 @@
 #include "OpenALPlayer.h"
+#include <iostream>
 
 OpenALPlayer::OpenALPlayer()
 	: buffers{ nullptr }
@@ -70,11 +71,15 @@ void OpenALPlayer::init(PlayerInitInfo initInfo)
 	}
 }
 
-void OpenALPlayer::playSamples(std::unique_ptr<ConvertedSampleContainer> container)
+void OpenALPlayer::playSamples(std::unique_ptr<SampleContainer> container)
 {
+
+	static auto start = std::chrono::high_resolution_clock::now();
+	auto end = std::chrono::high_resolution_clock::now();
+	int64_t delta = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+	std::cout << "Playing: " << container->timeStamp << " at delta: " << delta << std::endl;
 	//since the container is passed by reference, it is possible that OpenAL is still waiting with the transfer
 	//which means that the container cant be used for new samples in the meantime
-
 	if (initBuffer)
 	{
 		alBufferData(buffers[bufferNumber], format, container->convertedSamples, container->dataSize, frequency);

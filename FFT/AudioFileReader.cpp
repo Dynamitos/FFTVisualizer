@@ -52,9 +52,8 @@ void AudioFileReader::setStreamSource(AudioSourceInfo& info)
 	frame = av_frame_alloc();
 }
 
-std::unique_ptr<AudioInputContainer> AudioFileReader::readSamples(bool& samplesLeft)
+std::unique_ptr<AudioInputContainer> AudioFileReader::readSamples()
 {
-	std::unique_ptr<AudioInputContainer> sampleContainer = std::make_unique<AudioInputContainer>();
 	while (true)
 	{
 		int result = av_read_frame(formatContext, packet);
@@ -64,8 +63,7 @@ std::unique_ptr<AudioInputContainer> AudioFileReader::readSamples(bool& samplesL
 			packet->data = nullptr;
 
 			avcodec_send_packet(codecContext, packet);
-			samplesLeft = false;
-			return sampleContainer;
+			return nullptr;
 		}
 
 		if (packet->stream_index == streamIndex)
@@ -73,6 +71,7 @@ std::unique_ptr<AudioInputContainer> AudioFileReader::readSamples(bool& samplesL
 			break;
 		}
 	}
+	std::unique_ptr<AudioInputContainer> sampleContainer = std::make_unique<AudioInputContainer>();
 	avcodec_send_packet(codecContext, packet);
 	avcodec_receive_frame(codecContext, frame);
 	uint32_t audioByteSize = frame->nb_samples * av_get_bytes_per_sample(codecContext->sample_fmt);
@@ -122,8 +121,8 @@ std::unique_ptr<AudioInputContainer> AudioFileReader::readSamples(bool& samplesL
 	sampleContainer->dataSize = audioByteSize;
 	sampleContainer->numChannels = frame->channels;
 	sampleContainer->numSamples = frame->nb_samples;
+	sampleContainer->timeStamp = frame->pts * codecContext->sample_rate;
 
-	samplesLeft = true;
 	return sampleContainer;
 }
 

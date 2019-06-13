@@ -75,7 +75,7 @@ void WindowsPlayer::finalizeConverterInfo(ConverterInitInfo& converterInfo)
 	}
 }
 
-void WindowsPlayer::playSamples(std::unique_ptr<ConvertedSampleContainer> container)
+void WindowsPlayer::playSamples(std::unique_ptr<SampleContainer> container)
 {
 	if (initBuffer)
 	{

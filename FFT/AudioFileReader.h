@@ -13,7 +13,7 @@ public:
 	virtual ~AudioFileReader();
 
 	virtual void setStreamSource(AudioSourceInfo& info);
-	virtual std::unique_ptr<AudioInputContainer> readSamples(bool& samplesLeft);
+	virtual std::unique_ptr<AudioInputContainer> readSamples();
 	virtual float getSampleRate();
 	virtual void fillConverterInfo(ConverterInitInfo& converterInfo);
 private:

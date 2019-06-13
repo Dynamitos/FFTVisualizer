@@ -21,7 +21,7 @@ public:
 	}
 	inline bool isFinished()
 	{
-		return bIsFinished;
+		return bIsFinished && queue.size() == 0;
 	}
 	void addToQueue(std::unique_ptr<T> packet)
 	{

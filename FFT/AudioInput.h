@@ -1,6 +1,7 @@
 #pragma once
 #include "Resources.h"
 #include "PacketQueue.h"
+#include <iostream>
 
 /**
 * This inteface defines the capabilities of an Audio Input. This can be implemented via reading from a file, streaming from a server etc.
@@ -17,17 +18,22 @@ public:
 
 	}
 
-	void run(PacketQueue<AudioInputContainer>* queue)
+	void registerPacketQueue(PacketQueue<AudioInputContainer>* newQueue)
 	{
-		bool packetsLeft = true;
-		while (true)
+		queues.push_back(newQueue);
+	}
+
+	void run()
+	{
+		std::unique_ptr<AudioInputContainer> samples = readSamples();
+		while (samples != nullptr)
 		{
-			std::unique_ptr<AudioInputContainer> tempContainer = readSamples(packetsLeft);
-			if (!packetsLeft)
-				break;
-			queue->addToQueue(std::move(tempContainer));
+			for (auto queue = queues.begin(); queue != queues.end(); ++queue)
+			{
+				(*queue)->addToQueue(std::make_unique<AudioInputContainer>(*samples));
+			}
+			samples = readSamples();
 		}
-		queue->signalFinished();
 	}
 
 	/**
@@ -39,7 +45,7 @@ public:
 	/**
 	* This method is used to read one set of samples from the current audio input. The samples are currently to be passed as floats, however there will be changes in the future
 	*/
-	virtual std::unique_ptr<AudioInputContainer> readSamples(bool& samplesLeft) = 0;
+	virtual std::unique_ptr<AudioInputContainer> readSamples() = 0;
 
 	/**
 	* Returns the sample rate of the input stream(before converting to the player)
@@ -52,4 +58,5 @@ public:
 	*/
 	virtual void fillConverterInfo(ConverterInitInfo& converterInfo) = 0;
 private:
+	std::vector<PacketQueue<AudioInputContainer>*> queues;
 };

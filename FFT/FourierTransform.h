@@ -112,7 +112,7 @@ public:
 
 	virtual void finalizeConverterInfo(ConverterInitInfo& initInfo);
 
-	virtual void forward(const ConvertedSampleContainer& container);
+	virtual void forward(std::unique_ptr<SampleContainer> container);
 
 	virtual void forward(float* buffer, int bufferLength) = 0;
 

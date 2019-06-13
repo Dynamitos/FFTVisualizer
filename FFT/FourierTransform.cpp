@@ -329,17 +329,37 @@ void FourierTransform::finalizeConverterInfo(ConverterInitInfo& initInfo)
 	initInfo.outSampleFormat = AV_SAMPLE_FMT_FLT;
 }
 
-void FourierTransform::forward(const ConvertedSampleContainer& container)
+void FourierTransform::forward(std::unique_ptr<SampleContainer> container)
 {
+	//buffer input that doesnt fit into timesize
 	float* samplePointer = &sampleBuffer[currentBufferIndex];
-	std::memcpy(samplePointer, container.convertedSamples, container.dataSize);
-	currentBufferIndex += container.numSamples;
-	if (currentBufferIndex > timeSize)
+	//append the input after the current buffer index
+	//since we told the converter to convert to float, we can safely copy the array
+	std::memcpy(samplePointer, container->convertedSamples, container->dataSize);
+	currentBufferIndex += container->numSamples;
+	//we now have enough input for at least one forward
+	//sampleBuffer[0-currentBufferIndex] are now valid
+	float* forwardPointer = sampleBuffer.data();
+	uint32_t remainingSamples = currentBufferIndex;
+	while (remainingSamples >= timeSize)
 	{
-		forward(sampleBuffer.data(), timeSize);
-		uint64_t overflow = (uint64_t)currentBufferIndex - timeSize;
-		std::memcpy(sampleBuffer.data(), sampleBuffer.data() + timeSize, overflow * sizeof(float));
+		forward(forwardPointer, timeSize);
+
+		std::unique_ptr<SampleContainer> processedSpectrum = std::make_unique<SampleContainer>();
+		//since we copy into a uint8_t array, we have to calculate sizes in bytes
+		uint32_t spectrumByteSize = spectrumLength * sizeof(float);
+		processedSpectrum->convertedSamples = new uint8_t[spectrumLength * sizeof(float)];
+		processedSpectrum->dataSize = spectrumLength * sizeof(float);
+		processedSpectrum->timeStamp = container->timeStamp;
+		std::memcpy(processedSpectrum->convertedSamples, spectrum, spectrumLength * sizeof(float));
+		//data is now, copied, add it to the output queue
+		outputQueue->addToQueue(std::move(processedSpectrum));
+		remainingSamples -= timeSize;
+		forwardPointer += timeSize;
 	}
+	//we now have less than timeSize samples left, copy the rest to the beginning of the sampleBuffer
+	std::memcpy(sampleBuffer.data(), forwardPointer, remainingSamples * sizeof(float));
+	currentBufferIndex = remainingSamples;
 }
 
 void FourierTransform::forward(float* buffer, int bufferLength, int startAt)

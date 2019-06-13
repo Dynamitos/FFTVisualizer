@@ -13,9 +13,9 @@ public:
 	SampleConverter(ConverterInitInfo converterInfo);
 	virtual ~SampleConverter();
 
-	void run(PacketQueue<AudioInputContainer>* inputQueue, PacketQueue<ConvertedSampleContainer>* outputQueue);
+	void run(PacketQueue<AudioInputContainer>* inputQueue, PacketQueue<SampleContainer>* outputQueue);
 
-	std::unique_ptr<ConvertedSampleContainer> convertFrame(std::unique_ptr<AudioInputContainer> audioSamples);
+	std::unique_ptr<SampleContainer> convertFrame(std::unique_ptr<AudioInputContainer> audioSamples);
 	void convertFrame(AVFrame* inFrame, std::vector<uint8_t>& outputBuffer, int& dataSize);
 private:
 	SwrContext* swrContext;

@@ -32,7 +32,6 @@ Display::~Display()
 
 void Display::drawFFT(float* fftOut, int count)
 {
-	auto start = std::chrono::high_resolution_clock::now();
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderClear(renderer);
 	SDL_SetRenderDrawColor(renderer, 0, 0xff, 0, SDL_ALPHA_OPAQUE);
@@ -58,7 +57,5 @@ void Display::drawFFT(float* fftOut, int count)
 	SDL_RenderPresent(renderer);
 
 	SDL_PollEvent(nullptr);
-	auto end = std::chrono::high_resolution_clock::now();
-	int64_t delta = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
 	//std::cout << "Delta: " << delta << std::endl;
 }
