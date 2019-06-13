@@ -52,12 +52,12 @@ protected:
 	int spectrumLength;
 	int averagesLength;
 
-	FourierTransform(int bufferSize, float sampleRate);
+	FourierTransform();
 	virtual ~FourierTransform();
 
 	virtual void allocateArrays() = 0;
 
-	virtual void init();
+	virtual void init(ProcessorInitInfo processorInfo);
 
 	void setComplex(float * r, int realLength, float * i, int imagLength);
 

@@ -11,7 +11,7 @@ const WindowFunction* FourierTransform::LANCZOS = new LanczosWindow();
 const WindowFunction* FourierTransform::BLACKMAN = new BlackmanWindow();
 const WindowFunction* FourierTransform::GAUSS = new GaussWindow();
 
-FourierTransform::FourierTransform(int bufferSize, float sampleRate)
+FourierTransform::FourierTransform()
 	: averagesLength{ 0 }
 	, avgPerOctave{ 0 }
 	, imagLength{ 0 }
@@ -20,13 +20,11 @@ FourierTransform::FourierTransform(int bufferSize, float sampleRate)
 	, octaves{ 0 }
 	, whichAverage{ NOAVG }
 	, currentBufferIndex{ 0 }
+	, bandWidth{ 0 }
+	, currentWindow{ nullptr }
+	, sampleRate{ 0 }
+	, timeSize{ 0 }
 {
-	sampleBuffer.resize(static_cast<uint64_t>(bufferSize) * 4);
-	timeSize = bufferSize;
-	this->sampleRate = (int)sampleRate;
-	bandWidth = (2.f / timeSize) * ((float)sampleRate / 2.f);
-	noAverages();
-	currentWindow = new RectangularWindow();
 }
 
 FourierTransform::~FourierTransform()
@@ -37,8 +35,14 @@ FourierTransform::~FourierTransform()
 	if (averages != nullptr) delete averages;
 }
 
-void FourierTransform::init()
+void FourierTransform::init(ProcessorInitInfo processorInfo)
 {
+	sampleBuffer.resize(static_cast<uint64_t>(processorInfo.fftSize) * 4);
+	timeSize = processorInfo.fftSize;
+	sampleRate = (int)processorInfo.sampleRate;
+	bandWidth = (2.f / timeSize) * ((float)sampleRate / 2.f);
+	noAverages();
+	currentWindow = new RectangularWindow();
 }
 
 void FourierTransform::setComplex(float* r, int rLength, float* i, int iLength)
@@ -331,6 +335,8 @@ void FourierTransform::finalizeConverterInfo(ConverterInitInfo& initInfo)
 
 void FourierTransform::forward(std::unique_ptr<SampleContainer> container)
 {
+	static uint64_t audioClock = 0;
+	
 	//buffer input that doesnt fit into timesize
 	float* samplePointer = &sampleBuffer[currentBufferIndex];
 	//append the input after the current buffer index
@@ -348,10 +354,12 @@ void FourierTransform::forward(std::unique_ptr<SampleContainer> container)
 		std::unique_ptr<SampleContainer> processedSpectrum = std::make_unique<SampleContainer>();
 		//since we copy into a uint8_t array, we have to calculate sizes in bytes
 		uint32_t spectrumByteSize = spectrumLength * sizeof(float);
-		processedSpectrum->convertedSamples = new uint8_t[spectrumLength * sizeof(float)];
-		processedSpectrum->dataSize = spectrumLength * sizeof(float);
-		processedSpectrum->timeStamp = container->timeStamp;
-		std::memcpy(processedSpectrum->convertedSamples, spectrum, spectrumLength * sizeof(float));
+		processedSpectrum->convertedSamples = new uint8_t[spectrumByteSize];
+		processedSpectrum->dataSize = spectrumByteSize;
+		//calculate clock of current samplecontainer
+		audioClock += pow(10,9)*timeSize / sampleRate;
+		processedSpectrum->timeStamp = audioClock;
+		std::memcpy(processedSpectrum->convertedSamples, spectrum, spectrumByteSize);
 		//data is now, copied, add it to the output queue
 		outputQueue->addToQueue(std::move(processedSpectrum));
 		remainingSamples -= timeSize;

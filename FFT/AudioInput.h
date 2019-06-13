@@ -50,7 +50,7 @@ public:
 	/**
 	* Returns the sample rate of the input stream(before converting to the player)
 	*/
-	virtual float getSampleRate() = 0;
+	virtual uint32_t getSampleRate() = 0;
 
 	/**
 	* Fills the attributes of the given ConverterInitInfo with the values from the input.

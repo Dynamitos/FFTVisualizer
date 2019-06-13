@@ -5,7 +5,7 @@
 class FFT : public FourierTransform
 {
 public:
-	FFT(int timeSize, float sampleRate);
+	FFT();
 	~FFT();
 protected:
 	void allocateArrays();
@@ -18,6 +18,8 @@ private:
 	void fft();
 	
 public:
+	virtual void init(ProcessorInitInfo initInfo);
+
 	void forward(float* buffer, int bufferLength);
 
 	void forward(float* buffer, int bufferLength, int startAt);

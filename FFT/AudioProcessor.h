@@ -24,7 +24,7 @@ public:
 		outputQueue->signalFinished();
 	}
 
-	virtual void init() = 0;
+	virtual void init(ProcessorInitInfo processorInfo) = 0;
 
 	virtual void finalizeConverterInfo(ConverterInitInfo& initInfo) = 0;
 

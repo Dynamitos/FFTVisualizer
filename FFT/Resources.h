@@ -28,8 +28,17 @@ struct PlayerInitInfo
 
 struct ProcessorInitInfo
 {
+	uint32_t sampleRate;
 	uint32_t fftSize;
+	uint32_t numBands;
+	uint32_t tesselationLevel;
 };
+
+struct AudioSourceInfo
+{
+	const char* url;
+};
+
 struct AudioInputContainer
 {
 	AudioInputContainer()
@@ -236,9 +245,4 @@ struct SampleContainer
 	uint32_t dataSize = 0;
 	uint32_t numSamples;
 	int64_t timeStamp;
-};
-
-struct AudioSourceInfo
-{
-	const char* url;
 };

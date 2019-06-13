@@ -1,15 +1,8 @@
 #include "FFT.h"
 
-FFT::FFT(int timeSize, float sampleRate)
-	: FourierTransform(timeSize, sampleRate)
+FFT::FFT()
+	: FourierTransform()
 {
-	allocateArrays();
-	if ((timeSize & (timeSize - 1)) != 0)
-	{
-		throw new std::logic_error("FFT: timeSize must be a power of two.");
-	}
-	buildReverseTable();
-	buildTrigTables();
 }
 
 FFT::~FFT()
@@ -104,6 +97,18 @@ void FFT::fft()
 			currentPhaseShiftI = (tmpR * phaseShiftStepI) + (currentPhaseShiftI * phaseShiftStepR);
 		}
 	}
+}
+
+void FFT::init(ProcessorInitInfo initInfo)
+{
+	FourierTransform::init(initInfo);
+	allocateArrays();
+	if ((timeSize & (timeSize - 1)) != 0)
+	{
+		throw new std::logic_error("FFT: timeSize must be a power of two.");
+	}
+	buildReverseTable();
+	buildTrigTables();
 }
 
 void FFT::forward(float * buffer, int bufferLength)

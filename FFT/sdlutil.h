@@ -19,6 +19,7 @@ public:
 			int64_t delta = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
 			//acquire ownership
 			std::unique_ptr<SampleContainer> input = inputQueue->popPacket();
+			//sleep until the timestamp of the input is reached
 			std::this_thread::sleep_for(std::chrono::nanoseconds(input->timeStamp - delta));
 
 			//this one is fairly sketch, but for now we know that it is float data

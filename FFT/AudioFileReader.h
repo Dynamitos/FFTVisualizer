@@ -14,7 +14,7 @@ public:
 
 	virtual void setStreamSource(AudioSourceInfo& info);
 	virtual std::unique_ptr<AudioInputContainer> readSamples();
-	virtual float getSampleRate();
+	virtual uint32_t getSampleRate();
 	virtual void fillConverterInfo(ConverterInitInfo& converterInfo);
 private:
 	AVFormatContext* formatContext;

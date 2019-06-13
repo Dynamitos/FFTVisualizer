@@ -121,14 +121,14 @@ std::unique_ptr<AudioInputContainer> AudioFileReader::readSamples()
 	sampleContainer->dataSize = audioByteSize;
 	sampleContainer->numChannels = frame->channels;
 	sampleContainer->numSamples = frame->nb_samples;
-	sampleContainer->timeStamp = frame->pts * codecContext->sample_rate;
+	sampleContainer->timeStamp = av_q2d(codecContext->time_base) * frame->pts;
 
 	return sampleContainer;
 }
 
-float AudioFileReader::getSampleRate()
+uint32_t AudioFileReader::getSampleRate()
 {
-	return static_cast<float>(codecContext->sample_rate);
+	return static_cast<uint32_t>(codecContext->sample_rate);
 }
 
 void AudioFileReader::fillConverterInfo(ConverterInitInfo & converterInfo)

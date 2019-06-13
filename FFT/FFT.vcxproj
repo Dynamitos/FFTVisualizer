@@ -22,6 +22,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="AudioFileReader.cpp" />
     <ClCompile Include="FFT.cpp" />
+    <ClCompile Include="FFTFilter.cpp" />
     <ClCompile Include="FourierTransform.cpp" />
     <ClCompile Include="OpenALPlayer.cpp" />
     <ClCompile Include="SampleConverter.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="BlackmanWindow.h" />
     <ClInclude Include="CosineWindow.h" />
     <ClInclude Include="FFT.h" />
+    <ClInclude Include="FFTFilter.h" />
     <ClInclude Include="FourierTransform.h" />
     <ClInclude Include="GaussWindow.h" />
     <ClInclude Include="HammingWindow.h" />

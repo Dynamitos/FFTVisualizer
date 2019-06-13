@@ -5,6 +5,7 @@
 #include "sdlutil.h"
 #include "OpenALPlayer.h"
 #include "WindowsPlayer.h"
+#include "FFTFilter.h"
 #include <thread>
 
 #undef main
@@ -12,7 +13,7 @@ int main()
 {
 	//Audio input
 	AudioSourceInfo sourceInfo;
-	sourceInfo.url = "Africa.mp3";
+	sourceInfo.url = "Obsessed.mp3";
 	AudioInput* audioInput = new AudioFileReader();
 	audioInput->setStreamSource(sourceInfo);
 	
@@ -25,8 +26,14 @@ int main()
 	//FFT
 	//change to use ProcessorInfo
 	ProcessorInitInfo fftInfo;// = commandline.getfftInfo
-	fftInfo.fftSize = 4096;
-	AudioProcessor* fft = new FFT(fftInfo.fftSize, audioInput->getSampleRate());
+	fftInfo.fftSize = 2048;
+	fftInfo.sampleRate = audioInput->getSampleRate();
+	fftInfo.numBands = 32;
+	fftInfo.tesselationLevel = 64;
+	AudioProcessor* fft = new FFT();
+	fft->init(fftInfo);
+	AudioProcessor* fftFilter = new FFTFilter();
+	fftFilter->init(fftInfo);
 	
 	//Visualizer
 	Display* display = new Display(1920, 1080);
@@ -51,8 +58,10 @@ int main()
 	PacketQueue<AudioInputContainer>* fftInputQueue = new PacketQueue<AudioInputContainer>();
 	//FFT converter to FFT Processor
 	PacketQueue<SampleContainer>* fftOutputQueue = new PacketQueue<SampleContainer>();
-	//FFT Processor to visualizer
+	//FFT Processor to filter
 	PacketQueue<SampleContainer>* fftProcessedQueue = new PacketQueue<SampleContainer>();
+	//FFT Filter to visualizer
+	PacketQueue<SampleContainer>* fftFilteredQueue = new PacketQueue<SampleContainer>();
 
 	audioInput->registerPacketQueue(inputQueue);
 	audioInput->registerPacketQueue(fftInputQueue);
@@ -62,7 +71,8 @@ int main()
 	std::thread playerThread(&AudioPlayer::run, audioPlayer, outputQueue);
 	std::thread fftConverterThread(&SampleConverter::run, inputToProcessorConverter, fftInputQueue, fftOutputQueue);
 	std::thread fftThread(&AudioProcessor::run, fft, fftOutputQueue, fftProcessedQueue);
-	std::thread visualizerThread(&Display::run, display, fftProcessedQueue);
+	std::thread fftFilterThread(&AudioProcessor::run, fftFilter, fftProcessedQueue, fftFilteredQueue);
+	std::thread visualizerThread(&Display::run, display, fftFilteredQueue);
 
 	inputThread.join();
 	converterThread.join();
