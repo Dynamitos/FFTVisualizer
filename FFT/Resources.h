@@ -1,8 +1,11 @@
 #pragma once
 #include <AL/al.h>
+#include <glm/glm.hpp>
 #include <stdint.h>
 #include <string>
 #include <vector>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 extern "C"
 {
 #include <libswresample/swresample.h>
@@ -32,6 +35,18 @@ struct ProcessorInitInfo
 	uint32_t fftSize;
 	uint32_t numBands;
 	uint32_t tesselationLevel;
+};
+
+struct AudioVisualizerInfo
+{
+	const char* imageURL;
+	glm::ivec2 screenDimensions;
+	float intensityScale;
+	float intensityOffset;
+	bool scaling;
+	bool vSync;
+	const char* name;
+	const char* overlayURL;
 };
 
 struct AudioSourceInfo

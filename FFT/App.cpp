@@ -36,7 +36,7 @@ int main()
 	fftFilter->init(fftInfo);
 	
 	//Visualizer
-	Display* display = new Display(1920, 1080);
+	Display* display = new Display(1280, 720);
 
 	//Input to player
 	ConverterInitInfo inputToPlayerInfo;
@@ -78,6 +78,7 @@ int main()
 	converterThread.join();
 	playerThread.join();
 	fftConverterThread.join();
+	fftFilterThread.join();
 	fftThread.join();
 	visualizerThread.join();
 }

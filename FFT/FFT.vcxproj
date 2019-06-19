@@ -21,12 +21,17 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="AudioFileReader.cpp" />
+    <ClCompile Include="AudioVisualizer.cpp" />
     <ClCompile Include="FFT.cpp" />
     <ClCompile Include="FFTFilter.cpp" />
     <ClCompile Include="FourierTransform.cpp" />
+    <ClCompile Include="ImageRenderer.cpp" />
     <ClCompile Include="OpenALPlayer.cpp" />
+    <ClCompile Include="OpenGLLoader.cpp" />
+    <ClCompile Include="OpenGLVisualizer.cpp" />
     <ClCompile Include="SampleConverter.cpp" />
     <ClCompile Include="sdlutil.cpp" />
+    <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="WindowsPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,9 +39,11 @@
     <ClInclude Include="AudioInput.h" />
     <ClInclude Include="AudioPlayer.h" />
     <ClInclude Include="AudioProcessor.h" />
+    <ClInclude Include="AudioVisualizer.h" />
     <ClInclude Include="BartlettHannWindow.h" />
     <ClInclude Include="BartlettWindow.h" />
     <ClInclude Include="BlackmanWindow.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="CosineWindow.h" />
     <ClInclude Include="FFT.h" />
     <ClInclude Include="FFTFilter.h" />
@@ -44,13 +51,18 @@
     <ClInclude Include="GaussWindow.h" />
     <ClInclude Include="HammingWindow.h" />
     <ClInclude Include="HannWindow.h" />
+    <ClInclude Include="ImageRenderer.h" />
+    <ClInclude Include="ImageShader.h" />
     <ClInclude Include="LanczosWindow.h" />
+    <ClInclude Include="OpenGLLoader.h" />
     <ClInclude Include="OpenALPlayer.h" />
+    <ClInclude Include="OpenGLVisualizer.h" />
     <ClInclude Include="PacketQueue.h" />
     <ClInclude Include="RectangularWindow.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="SampleConverter.h" />
     <ClInclude Include="sdlutil.h" />
+    <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="TriangularWindow.h" />
     <ClInclude Include="WindowFunction.h" />
     <ClInclude Include="WindowsPlayer.h" />
@@ -136,6 +148,9 @@
     <Link>
       <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -149,6 +164,9 @@
     <Link>
       <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -166,6 +184,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -184,6 +205,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
