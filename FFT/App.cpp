@@ -2,7 +2,7 @@
 #include "AudioFileReader.h"
 #include "FFT.h"
 #include "SampleConverter.h"
-#include "sdlutil.h"
+#include "Visualizer.h"
 #include "OpenALPlayer.h"
 #include "WindowsPlayer.h"
 #include "FFTFilter.h"
@@ -36,7 +36,17 @@ int main()
 	fftFilter->init(fftInfo);
 	
 	//Visualizer
-	Display* display = new Display(1280, 720);
+	AudioVisualizerInfo visualizerInfo;
+	visualizerInfo.imageURL = "Test.png";
+	visualizerInfo.intensityOffset = 0.5f;
+	visualizerInfo.intensityScale = 2.0f;
+	visualizerInfo.name = "Test";
+	visualizerInfo.overlayURL = "Overlay.png";
+	visualizerInfo.scaling = true;
+	visualizerInfo.screenDimensions = glm::ivec2(1920, 1080);
+	visualizerInfo.vSync = true;
+	AudioVisualizer* visualizer = new GL::Renderer();
+	visualizer->init(visualizerInfo);
 
 	//Input to player
 	ConverterInitInfo inputToPlayerInfo;
@@ -72,7 +82,7 @@ int main()
 	std::thread fftConverterThread(&SampleConverter::run, inputToProcessorConverter, fftInputQueue, fftOutputQueue);
 	std::thread fftThread(&AudioProcessor::run, fft, fftOutputQueue, fftProcessedQueue);
 	std::thread fftFilterThread(&AudioProcessor::run, fftFilter, fftProcessedQueue, fftFilteredQueue);
-	std::thread visualizerThread(&Display::run, display, fftFilteredQueue);
+	std::thread visualizerThread(&AudioVisualizer::run, visualizer, fftFilteredQueue);
 
 	inputThread.join();
 	converterThread.join();

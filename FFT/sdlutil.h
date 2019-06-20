@@ -5,11 +5,11 @@
 #include "Resources.h"
 #include "PacketQueue.h"
 
-class Display
+class SDLDisplay
 {
 public:
-	Display(int width, int height);
-	~Display();
+	SDLDisplay(int width, int height);
+	~SDLDisplay();
 	
 	void drawFFT(float* fftOut, int count);
 private:

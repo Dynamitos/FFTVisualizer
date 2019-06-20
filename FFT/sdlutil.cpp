@@ -2,7 +2,7 @@
 #include <chrono>
 
 
-Display::Display(int width, int height)
+SDLDisplay::SDLDisplay(int width, int height)
 	: width(width)
 	, height(height)
 {
@@ -23,14 +23,14 @@ Display::Display(int width, int height)
 	SDL_UpdateWindowSurface(window);
 }
 
-Display::~Display()
+SDLDisplay::~SDLDisplay()
 {
 	SDL_DestroyWindow(window);
 
 	SDL_Quit();
 }
 
-void Display::drawFFT(float* fftOut, int count)
+void SDLDisplay::drawFFT(float* fftOut, int count)
 {
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderClear(renderer);

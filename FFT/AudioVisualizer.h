@@ -7,7 +7,7 @@ class AudioVisualizer
 public:
 	AudioVisualizer();
 	virtual ~AudioVisualizer();
-	virtual void init() = 0;
+	virtual void init(AudioVisualizerInfo visualizerInfo) = 0;
 	void run(PacketQueue<SampleContainer>* inputQueue)
 	{
 		static auto start = std::chrono::high_resolution_clock::now();

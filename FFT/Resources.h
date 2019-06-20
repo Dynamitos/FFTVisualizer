@@ -1,6 +1,7 @@
 #pragma once
 #include <AL/al.h>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <stdint.h>
 #include <string>
 #include <vector>
@@ -22,6 +23,11 @@ struct ConverterInitInfo
 	uint64_t outChannelLayout;
 	AVSampleFormat inSampleFormat;
 	AVSampleFormat outSampleFormat;
+};
+
+struct Input
+{
+	static bool keys[GLFW_KEY_LAST];
 };
 
 struct PlayerInitInfo

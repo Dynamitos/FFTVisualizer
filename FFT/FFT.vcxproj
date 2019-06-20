@@ -22,13 +22,15 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="AudioFileReader.cpp" />
     <ClCompile Include="AudioVisualizer.cpp" />
+    <ClCompile Include="Display.cpp" />
     <ClCompile Include="FFT.cpp" />
     <ClCompile Include="FFTFilter.cpp" />
     <ClCompile Include="FourierTransform.cpp" />
     <ClCompile Include="ImageRenderer.cpp" />
+    <ClCompile Include="ImageShader.cpp" />
     <ClCompile Include="OpenALPlayer.cpp" />
-    <ClCompile Include="OpenGLLoader.cpp" />
-    <ClCompile Include="OpenGLVisualizer.cpp" />
+    <ClCompile Include="Loader.cpp" />
+    <ClCompile Include="Visualizer.cpp" />
     <ClCompile Include="SampleConverter.cpp" />
     <ClCompile Include="sdlutil.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
@@ -45,6 +47,7 @@
     <ClInclude Include="BlackmanWindow.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CosineWindow.h" />
+    <ClInclude Include="Display.h" />
     <ClInclude Include="FFT.h" />
     <ClInclude Include="FFTFilter.h" />
     <ClInclude Include="FourierTransform.h" />
@@ -54,9 +57,9 @@
     <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="ImageShader.h" />
     <ClInclude Include="LanczosWindow.h" />
-    <ClInclude Include="OpenGLLoader.h" />
+    <ClInclude Include="Loader.h" />
     <ClInclude Include="OpenALPlayer.h" />
-    <ClInclude Include="OpenGLVisualizer.h" />
+    <ClInclude Include="Visualizer.h" />
     <ClInclude Include="PacketQueue.h" />
     <ClInclude Include="RectangularWindow.h" />
     <ClInclude Include="Resources.h" />
@@ -146,10 +149,10 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;glfw3.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+      <Command>xcopy "$(SolutionDir)external\bin\" "$(TargetDir)" /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -162,10 +165,10 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;glfw3.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+      <Command>xcopy "$(SolutionDir)external\bin\*" "$(TargetDir)" /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -182,10 +185,10 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;glfw3.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+      <Command>xcopy "$(SolutionDir)external\bin\" "$(TargetDir)" /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -203,10 +206,10 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;glfw3.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "$(SolutionDir)external\bin\*" "$(TargetDir)"</Command>
+      <Command>xcopy "$(SolutionDir)external\bin\*" "$(TargetDir)" /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

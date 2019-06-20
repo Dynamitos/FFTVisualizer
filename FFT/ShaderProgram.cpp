@@ -1,4 +1,7 @@
 #include "ShaderProgram.h"
+#include <fstream>
+
+using namespace GL;
 
 ShaderProgram::ShaderProgram()
 {
@@ -47,14 +50,14 @@ int ShaderProgram::getUniformLocation(const char* uniformName)
 	GLint location = glGetUniformLocation(programID, uniformName);
 	if (location == -1)
 	{
-		printf("Error finding %s in program %d", uniformName, programID);
+		printf("Error finding %s in program %d\n", uniformName, programID);
 	}
 	return location;
 }
 
 void ShaderProgram::loadMatrix(int location, glm::mat4 matrix)
 {
-	glUniformMatrix4fv(location, 1, GL_FALSE, &matrix[0][0]);
+	glUniformMatrix4fv(location, 1, GL_TRUE, &matrix[0][0]);
 }
 
 void ShaderProgram::loadInt(int location, int value)
@@ -85,5 +88,33 @@ void ShaderProgram::loadVector(int location, glm::vec3 vector)
 
 void ShaderProgram::loadVector(int location, glm::vec4 vector)
 {
-	glUniform4f(location, vector.x, vector.y, vector.z, vector.z);
+	glUniform4f(location, vector.x, vector.y, vector.z, vector.w);
+}
+
+GLuint ShaderProgram::loadShader(const char* file, GLenum type)
+{
+	GLuint shaderID = glCreateShader(type);
+	std::string shaderBasePath = "./_Game/shaders/";
+	std::string fileName = shaderBasePath.append(file);
+	std::ifstream fileStream(fileName, std::ios::in | std::ios::ate);
+	GLint fileSize = fileStream.tellg();
+	fileStream.seekg(0);
+	GLchar* buffer = new GLchar[fileSize];
+	fileStream.read(buffer, fileSize);
+
+	glShaderSource(shaderID, 1, &buffer, &fileSize);
+	glCompileShader(shaderID);
+	GLint compileResult;
+	glGetShaderiv(shaderID, GL_COMPILE_STATUS, &compileResult);
+	if (compileResult == GL_FALSE)
+	{
+		printf("Error compiling:\n");
+	}
+#ifndef NDEBUG
+	char log[1000];
+	GLint length;
+	glGetShaderInfoLog(shaderID, 1000, &length, log);
+	printf("%s", log);
+#endif //!NDEBUG
+	return shaderID;
 }
