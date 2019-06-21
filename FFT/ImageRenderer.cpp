@@ -22,7 +22,6 @@ void ImageRenderer::init(Loader* loader, AudioVisualizerInfo visualizerInfo)
 	shader->loadIntensityMultipliers(visualizerInfo.intensityScale, visualizerInfo.intensityOffset);
 	shader->stop();
 	transformationMatrix = glm::mat4();
-
 }
 
 void ImageRenderer::render(float bass)

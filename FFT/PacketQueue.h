@@ -2,6 +2,7 @@
 #include "Resources.h"
 #include <queue>
 #include <mutex>
+#include <atomic>
 #include <memory>
 template<typename T>
 class PacketQueue
@@ -9,7 +10,7 @@ class PacketQueue
 public:
 	PacketQueue()
 	{
-
+		bIsFinished.store(false);
 	}
 	virtual ~PacketQueue()
 	{
@@ -17,11 +18,11 @@ public:
 	}
 	void signalFinished()
 	{
-		bIsFinished = true;
+		bIsFinished.store(true);
 	}
 	inline bool isFinished()
 	{
-		return bIsFinished && queue.size() == 0;
+		return bIsFinished.load() && queue.size() == 0;
 	}
 	void addToQueue(std::unique_ptr<T> packet)
 	{
@@ -37,7 +38,7 @@ public:
 		return element;
 	}
 private:
-	volatile uint8_t bIsFinished = false;
+	std::atomic_bool bIsFinished;
 	std::mutex queueLock;
 	std::queue<std::unique_ptr<T>> queue;
 };

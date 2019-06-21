@@ -26,19 +26,19 @@ void Display::createDisplay(AudioVisualizerInfo visualizerInfo)
 	glfwWindowHint(GLFW_SAMPLES, 4);
 	glfwWindowHint(GLFW_VISIBLE, GL_FALSE);
 
-	WIDTH = visualizerInfo.screenDimensions.x;
-	HEIGHT = visualizerInfo.screenDimensions.y;
+	width = visualizerInfo.screenDimensions.x;
+	height = visualizerInfo.screenDimensions.y;
 	bool isFullscreen = false;
 	const GLFWvidmode* vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-	if (vidMode->width == WIDTH && vidMode->height == HEIGHT)
+	if (vidMode->width == width && vidMode->height == height)
 	{
 		isFullscreen = true;
 	}
-	window = glfwCreateWindow(WIDTH, HEIGHT, visualizerInfo.name, isFullscreen ? glfwGetPrimaryMonitor() : nullptr, nullptr);
-	glfwMakeContextCurrent(window);
+	window = glfwCreateWindow(width, height, visualizerInfo.name, isFullscreen ? glfwGetPrimaryMonitor() : nullptr, nullptr);
 	glfwSetKeyCallback(window, &keyCallback);
 	glfwSetCursorPosCallback(window, &mouseCallback);
 	glfwSwapInterval(visualizerInfo.vSync ? 1 : 0);
+	glfwMakeContextCurrent(window);
 
 	glewExperimental = GL_TRUE;
 	if (glewInit() != GLEW_OK)
@@ -55,6 +55,7 @@ void Display::updateDisplay()
 	currentFrameDelta = currentTime - lastFrameTime;
 	glfwSwapBuffers(window);
 }
+
 void Display::closeDisplay()
 {
 	glfwTerminate();

@@ -28,6 +28,8 @@
     <ClCompile Include="FourierTransform.cpp" />
     <ClCompile Include="ImageRenderer.cpp" />
     <ClCompile Include="ImageShader.cpp" />
+    <ClCompile Include="LineRenderer.cpp" />
+    <ClCompile Include="LineShader.cpp" />
     <ClCompile Include="OpenALPlayer.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="Visualizer.cpp" />
@@ -57,6 +59,8 @@
     <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="ImageShader.h" />
     <ClInclude Include="LanczosWindow.h" />
+    <ClInclude Include="LineRenderer.h" />
+    <ClInclude Include="LineShader.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="OpenALPlayer.h" />
     <ClInclude Include="Visualizer.h" />

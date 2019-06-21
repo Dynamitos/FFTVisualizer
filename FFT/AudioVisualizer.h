@@ -22,6 +22,7 @@ public:
 
 			renderData(std::move(input));
 		}
+
 	}
 	virtual void renderData(std::unique_ptr<SampleContainer> data) = 0;
 };

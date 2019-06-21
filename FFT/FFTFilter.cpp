@@ -47,6 +47,7 @@ void FFTFilter::forward(std::unique_ptr<SampleContainer> container)
 	}
 	reverseSmooth(targets, 0.9f);
 	std::memcpy(result->convertedSamples, targets, outputSize);
+	delete[] targets;
 	outputQueue->addToQueue(std::move(result));
 }
 

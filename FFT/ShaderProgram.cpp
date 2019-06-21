@@ -1,5 +1,6 @@
 #include "ShaderProgram.h"
 #include <fstream>
+#include <iostream>
 
 using namespace GL;
 
@@ -96,13 +97,12 @@ GLuint ShaderProgram::loadShader(const char* file, GLenum type)
 	GLuint shaderID = glCreateShader(type);
 	std::string shaderBasePath = "./_Game/shaders/";
 	std::string fileName = shaderBasePath.append(file);
-	std::ifstream fileStream(fileName, std::ios::in | std::ios::ate);
-	GLint fileSize = fileStream.tellg();
-	fileStream.seekg(0);
-	GLchar* buffer = new GLchar[fileSize];
-	fileStream.read(buffer, fileSize);
+	std::ifstream fileStream(fileName, std::ios::in);
+	std::string content((std::istreambuf_iterator<char>(fileStream)), (std::istreambuf_iterator<char>()));
+	const GLchar* buffer = content.c_str();
 
-	glShaderSource(shaderID, 1, &buffer, &fileSize);
+
+	glShaderSource(shaderID, 1, &buffer, nullptr);
 	glCompileShader(shaderID);
 	GLint compileResult;
 	glGetShaderiv(shaderID, GL_COMPILE_STATUS, &compileResult);

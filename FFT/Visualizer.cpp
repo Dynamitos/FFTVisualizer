@@ -1,5 +1,6 @@
 #include "Visualizer.h"
 #include "Loader.h"
+#include <iostream>
 
 using namespace GL;
 
@@ -19,16 +20,21 @@ void Renderer::init(AudioVisualizerInfo visualizerInfo)
 	loader = new Loader();
 	imageRenderer = new ImageRenderer();
 	imageRenderer->init(loader, visualizerInfo);
+	lineRenderer = new LineRenderer();
+	lineRenderer->init(visualizerInfo);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glLineWidth(2.f);
 }
 
 void Renderer::renderData(std::unique_ptr<SampleContainer> data)
 {
 	float* fftData = (float*)data->convertedSamples;
 	imageRenderer->render(calcBass(fftData, data->numSamples));
+	lineRenderer->render(fftData);
 	display->updateDisplay();
 }
 
-float GL::Renderer::calcBass(float* bands, int numBands)
+float Renderer::calcBass(float* bands, int numBands)
 {
 	float tempGain = 0;
 	for (int i = 0; i < numBands; ++i)

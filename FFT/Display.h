@@ -12,8 +12,8 @@ namespace GL
 		void createDisplay(AudioVisualizerInfo visualizerInfo);
 		void updateDisplay();
 		void closeDisplay();
-		inline uint32_t getWidth() { return WIDTH; }
-		inline uint32_t getHeight() { return HEIGHT; }
+		inline uint32_t getWidth() { return width; }
+		inline uint32_t getHeight() { return height; }
 		inline float getCurrentFrameTime() { return currentFrameDelta; }
 		GLFWwindow* getWindow() { return window; }
 		bool shouldClose();
@@ -22,8 +22,8 @@ namespace GL
 		static void mouseCallback(GLFWwindow* window, double xPos, double yPos);
 
 		GLFWwindow* window;
-		uint32_t WIDTH = 720;
-		uint32_t HEIGHT = 1280;
+		uint32_t width = 720;
+		uint32_t height = 1280;
 		double lastFrameTime;
 		double currentFrameDelta;
 		int nbFrames;

@@ -64,6 +64,7 @@ void OpenALPlayer::init(PlayerInitInfo initInfo)
 	buffers = new ALuint[numBuffers];
 	alGenBuffers(numBuffers, buffers);
 	alGenSources(1, &source);
+	alSourcef(source, AL_GAIN, 0.1f);
 	if (alGetError() != AL_NO_ERROR)
 	{
 		fprintf(stderr, "Error generating\n");
@@ -110,6 +111,7 @@ void OpenALPlayer::playSamples(std::unique_ptr<SampleContainer> container)
 		ALuint buffer;
 		ALint val;
 		do {
+			std::this_thread::yield();
 			alGetSourcei(source, AL_BUFFERS_PROCESSED, &val);
 		} while (val <= 0);
 

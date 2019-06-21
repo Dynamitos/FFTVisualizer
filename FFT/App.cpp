@@ -42,9 +42,13 @@ int main()
 	visualizerInfo.intensityScale = 2.0f;
 	visualizerInfo.name = "Test";
 	visualizerInfo.overlayURL = "Overlay.png";
-	visualizerInfo.scaling = true;
-	visualizerInfo.screenDimensions = glm::ivec2(1920, 1080);
+	visualizerInfo.scaling = false;
+	visualizerInfo.screenDimensions = glm::ivec2(1280, 720);
 	visualizerInfo.vSync = true;
+	visualizerInfo.numBands = fftInfo.numBands;
+	visualizerInfo.tesselationLevel = fftInfo.tesselationLevel;
+	visualizerInfo.line.start = glm::vec2(-0.490625f, -0.6648148f);
+	visualizerInfo.line.end = glm::vec2(0.49270832f, -0.6648148f);
 	AudioVisualizer* visualizer = new GL::Renderer();
 	visualizer->init(visualizerInfo);
 

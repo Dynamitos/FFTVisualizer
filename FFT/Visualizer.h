@@ -2,6 +2,7 @@
 #include "Resources.h"
 #include "AudioVisualizer.h"
 #include "ImageRenderer.h"
+#include "LineRenderer.h"
 #include "Display.h"
 namespace GL
 {
@@ -30,6 +31,7 @@ namespace GL
 		float calcBass(float* bands, int numBands);
 		float bassGain;
 		ImageRenderer* imageRenderer;
+		LineRenderer* lineRenderer;
 		Loader* loader;
 		Display* display;
 	};

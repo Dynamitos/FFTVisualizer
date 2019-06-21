@@ -13,6 +13,13 @@ extern "C"
 #include <libavutil/opt.h>
 }
 
+struct Line
+{
+	glm::vec2 start;
+	glm::vec2 end;
+	glm::vec4 lineColor;
+};
+
 struct ConverterInitInfo
 {
 	int inSampleRate;
@@ -47,6 +54,9 @@ struct AudioVisualizerInfo
 {
 	const char* imageURL;
 	glm::ivec2 screenDimensions;
+	uint32_t numBands;
+	uint32_t tesselationLevel;
+	Line line;
 	float intensityScale;
 	float intensityOffset;
 	bool scaling;

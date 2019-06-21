@@ -99,6 +99,12 @@
     <ClCompile Include="Visualizer.cpp">
       <Filter>Source Files\Visualization\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="LineShader.cpp">
+      <Filter>Source Files\Visualization\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="LineRenderer.cpp">
+      <Filter>Source Files\Visualization\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BartlettHannWindow.h">
@@ -195,6 +201,12 @@
       <Filter>Header Files\Visualization\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="Visualizer.h">
+      <Filter>Header Files\Visualization\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="LineRenderer.h">
+      <Filter>Header Files\Visualization\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="LineShader.h">
       <Filter>Header Files\Visualization\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
