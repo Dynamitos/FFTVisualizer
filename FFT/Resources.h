@@ -20,6 +20,20 @@ struct Line
 	glm::vec4 lineColor;
 };
 
+namespace GL
+{
+	struct RawModel
+	{
+	public:
+		GLuint vaoID;
+		uint32_t vertexCount;
+		const char* name;
+		RawModel(GLuint vaoID, uint32_t vertexCount, const char* name)
+			: vaoID(vaoID), vertexCount(vertexCount), name(name)
+		{}
+	};
+};
+
 struct ConverterInitInfo
 {
 	int inSampleRate;

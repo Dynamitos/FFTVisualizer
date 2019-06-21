@@ -62,5 +62,6 @@ void ImageShader::getAllUniformLocations()
 
 void ImageShader::bindAttributes()
 {
-	//dont bind attributes, we calculate fullscreen quad in shader
+	ShaderProgram::bindAttribute(0, "position");
+	ShaderProgram::bindAttribute(1, "texCoords");
 }

@@ -6,19 +6,6 @@
 #include "Display.h"
 namespace GL
 {
-	struct RawModel
-	{
-		RawModel(GLuint vaoID, GLsizei vertexCount, const char* name)
-			: vaoID(vaoID)
-			, vertexCount(vertexCount)
-			, name(name)
-		{}
-		GLuint vaoID;
-		GLsizei vertexCount;
-		const char* name;
-	};
-
-
 	class Renderer : public AudioVisualizer
 	{
 	public:

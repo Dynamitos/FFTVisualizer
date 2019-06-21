@@ -2,8 +2,6 @@
 #include "Resources.h"
 namespace GL
 {
-	class RawModel;
-
 	class Loader
 	{
 	public:

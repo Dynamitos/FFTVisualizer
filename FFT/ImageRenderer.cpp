@@ -10,6 +10,7 @@ ImageRenderer::ImageRenderer()
 
 void ImageRenderer::init(Loader* loader, AudioVisualizerInfo visualizerInfo)
 {
+	rawModel = loader->loadToVAO(vertices, sizeof(vertices), texCoords, sizeof(texCoords));
 	isScaling = visualizerInfo.scaling;
 	textureID = loader->loadTexture(visualizerInfo.imageURL);
 	float aspect = visualizerInfo.screenDimensions.x / (float)visualizerInfo.screenDimensions.y;
@@ -33,14 +34,17 @@ void ImageRenderer::render(float bass)
 	}
 	shader->loadTransformationMatrix(transformationMatrix);
 	
-	//dont bind VAO since we use a vertexless render
+	glBindVertexArray(rawModel->vaoID);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 	shader->loadTextures();
 	shader->loadBass(bass);
-
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
 	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindVertexArray(0);
 	shader->stop();
 }
