@@ -2,6 +2,7 @@
 #include "Loader.h"
 #include "ImageRenderer.h"
 #include "LineRenderer.h"
+#include "PostProcessingRenderer.h"
 
 using namespace GL;
 
@@ -23,6 +24,8 @@ void Renderer::init(AudioVisualizerInfo visualizerInfo)
 	imageRenderer->init(loader, visualizerInfo);
 	lineRenderer = new LineRenderer();
 	lineRenderer->init(visualizerInfo);
+	postProcessor = new PostProcessingRenderer();
+	postProcessor->init(loader, display, visualizerInfo);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glLineWidth(2.f);
 }
@@ -30,12 +33,15 @@ void Renderer::init(AudioVisualizerInfo visualizerInfo)
 void Renderer::renderData(std::unique_ptr<SampleContainer> data)
 {
 	float* fftData = (float*)data->convertedSamples;
+	postProcessor->beginMainPass();
 	imageRenderer->render(calcBass(fftData, data->numSamples));
 	lineRenderer->render(fftData);
+	postProcessor->unbindCurrentFramebuffer();
+	postProcessor->render();
 	display->updateDisplay();
 }
 
-bool GL::Renderer::shouldClose()
+bool Renderer::shouldClose()
 {
 	return display->shouldClose();
 }

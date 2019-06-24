@@ -50,6 +50,8 @@
     <ClInclude Include="Visualization\OpenGL\LineRenderer.h" />
     <ClInclude Include="Visualization\OpenGL\LineShader.h" />
     <ClInclude Include="Visualization\OpenGL\Loader.h" />
+    <ClInclude Include="Visualization\OpenGL\PostProcessingRenderer.h" />
+    <ClInclude Include="Visualization\OpenGL\PostProcessingShader.h" />
     <ClInclude Include="Visualization\OpenGL\Renderer.h" />
     <ClInclude Include="Visualization\OpenGL\ShaderProgram.h" />
     <ClInclude Include="Visualization\sdlutil.h" />
@@ -70,6 +72,8 @@
     <ClCompile Include="Visualization\OpenGL\LineRenderer.cpp" />
     <ClCompile Include="Visualization\OpenGL\LineShader.cpp" />
     <ClCompile Include="Visualization\OpenGL\Loader.cpp" />
+    <ClCompile Include="Visualization\OpenGL\PostProcessingRenderer.cpp" />
+    <ClCompile Include="Visualization\OpenGL\PostProcessingShader.cpp" />
     <ClCompile Include="Visualization\OpenGL\Renderer.cpp" />
     <ClCompile Include="Visualization\OpenGL\ShaderProgram.cpp" />
     <ClCompile Include="Visualization\sdlutil.cpp" />
