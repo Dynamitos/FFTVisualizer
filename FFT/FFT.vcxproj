@@ -19,60 +19,60 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="App.cpp" />
-    <ClCompile Include="AudioFileReader.cpp" />
-    <ClCompile Include="AudioVisualizer.cpp" />
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="FFT.cpp" />
-    <ClCompile Include="FFTFilter.cpp" />
-    <ClCompile Include="FourierTransform.cpp" />
-    <ClCompile Include="ImageRenderer.cpp" />
-    <ClCompile Include="ImageShader.cpp" />
-    <ClCompile Include="LineRenderer.cpp" />
-    <ClCompile Include="LineShader.cpp" />
-    <ClCompile Include="OpenALPlayer.cpp" />
-    <ClCompile Include="Loader.cpp" />
-    <ClCompile Include="Visualizer.cpp" />
-    <ClCompile Include="SampleConverter.cpp" />
-    <ClCompile Include="sdlutil.cpp" />
-    <ClCompile Include="ShaderProgram.cpp" />
-    <ClCompile Include="WindowsPlayer.cpp" />
+    <ClInclude Include="Input\AudioFileReader.h" />
+    <ClInclude Include="Input\AudioInput.h" />
+    <ClInclude Include="Player\AudioPlayer.h" />
+    <ClInclude Include="Player\OpenALPlayer.h" />
+    <ClInclude Include="Player\WindowsPlayer.h" />
+    <ClInclude Include="Processing\AudioProcessor.h" />
+    <ClInclude Include="Processing\BartlettHannWindow.h" />
+    <ClInclude Include="Processing\BartlettWindow.h" />
+    <ClInclude Include="Processing\BlackmanWindow.h" />
+    <ClInclude Include="Processing\CosineWindow.h" />
+    <ClInclude Include="Processing\FFT.h" />
+    <ClInclude Include="Processing\FFTFilter.h" />
+    <ClInclude Include="Processing\FourierTransform.h" />
+    <ClInclude Include="Processing\GaussWindow.h" />
+    <ClInclude Include="Processing\HammingWindow.h" />
+    <ClInclude Include="Processing\HannWindow.h" />
+    <ClInclude Include="Processing\LanczosWindow.h" />
+    <ClInclude Include="Processing\RectangularWindow.h" />
+    <ClInclude Include="Processing\TriangularWindow.h" />
+    <ClInclude Include="Processing\WindowFunction.h" />
+    <ClInclude Include="Utils\PacketQueue.h" />
+    <ClInclude Include="Utils\Resources.h" />
+    <ClInclude Include="Utils\SampleConverter.h" />
+    <ClInclude Include="Visualization\AudioVisualizer.h" />
+    <ClInclude Include="Visualization\OpenGL\Camera.h" />
+    <ClInclude Include="Visualization\OpenGL\Display.h" />
+    <ClInclude Include="Visualization\OpenGL\ImageRenderer.h" />
+    <ClInclude Include="Visualization\OpenGL\ImageShader.h" />
+    <ClInclude Include="Visualization\OpenGL\LineRenderer.h" />
+    <ClInclude Include="Visualization\OpenGL\LineShader.h" />
+    <ClInclude Include="Visualization\OpenGL\Loader.h" />
+    <ClInclude Include="Visualization\OpenGL\Renderer.h" />
+    <ClInclude Include="Visualization\OpenGL\ShaderProgram.h" />
+    <ClInclude Include="Visualization\sdlutil.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioFileReader.h" />
-    <ClInclude Include="AudioInput.h" />
-    <ClInclude Include="AudioPlayer.h" />
-    <ClInclude Include="AudioProcessor.h" />
-    <ClInclude Include="AudioVisualizer.h" />
-    <ClInclude Include="BartlettHannWindow.h" />
-    <ClInclude Include="BartlettWindow.h" />
-    <ClInclude Include="BlackmanWindow.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="CosineWindow.h" />
-    <ClInclude Include="Display.h" />
-    <ClInclude Include="FFT.h" />
-    <ClInclude Include="FFTFilter.h" />
-    <ClInclude Include="FourierTransform.h" />
-    <ClInclude Include="GaussWindow.h" />
-    <ClInclude Include="HammingWindow.h" />
-    <ClInclude Include="HannWindow.h" />
-    <ClInclude Include="ImageRenderer.h" />
-    <ClInclude Include="ImageShader.h" />
-    <ClInclude Include="LanczosWindow.h" />
-    <ClInclude Include="LineRenderer.h" />
-    <ClInclude Include="LineShader.h" />
-    <ClInclude Include="Loader.h" />
-    <ClInclude Include="OpenALPlayer.h" />
-    <ClInclude Include="Visualizer.h" />
-    <ClInclude Include="PacketQueue.h" />
-    <ClInclude Include="RectangularWindow.h" />
-    <ClInclude Include="Resources.h" />
-    <ClInclude Include="SampleConverter.h" />
-    <ClInclude Include="sdlutil.h" />
-    <ClInclude Include="ShaderProgram.h" />
-    <ClInclude Include="TriangularWindow.h" />
-    <ClInclude Include="WindowFunction.h" />
-    <ClInclude Include="WindowsPlayer.h" />
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="Input\AudioFileReader.cpp" />
+    <ClCompile Include="Player\OpenALPlayer.cpp" />
+    <ClCompile Include="Player\WindowsPlayer.cpp" />
+    <ClCompile Include="Processing\FFT.cpp" />
+    <ClCompile Include="Processing\FFTFilter.cpp" />
+    <ClCompile Include="Processing\FourierTransform.cpp" />
+    <ClCompile Include="Utils\SampleConverter.cpp" />
+    <ClCompile Include="Visualization\AudioVisualizer.cpp" />
+    <ClCompile Include="Visualization\OpenGL\Display.cpp" />
+    <ClCompile Include="Visualization\OpenGL\ImageRenderer.cpp" />
+    <ClCompile Include="Visualization\OpenGL\ImageShader.cpp" />
+    <ClCompile Include="Visualization\OpenGL\LineRenderer.cpp" />
+    <ClCompile Include="Visualization\OpenGL\LineShader.cpp" />
+    <ClCompile Include="Visualization\OpenGL\Loader.cpp" />
+    <ClCompile Include="Visualization\OpenGL\Renderer.cpp" />
+    <ClCompile Include="Visualization\OpenGL\ShaderProgram.cpp" />
+    <ClCompile Include="Visualization\sdlutil.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -167,12 +167,13 @@
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;glfw3.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)external\bin\*" "$(TargetDir)" /s /y</Command>
+      <Command>xcopy "$(SolutionDir)external\res\*" "$(TargetDir)" /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -213,7 +214,7 @@
       <AdditionalDependencies>SDL2.lib;glfw3.lib;al32.lib;swresample.lib;avcodec.lib;avutil.lib;avformat.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)external\bin\*" "$(TargetDir)" /s /y</Command>
+      <Command>xcopy "$(SolutionDir)external\res\*" "$(TargetDir)" /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

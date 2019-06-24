@@ -1,11 +1,11 @@
-#include "Resources.h"
-#include "AudioFileReader.h"
-#include "FFT.h"
-#include "SampleConverter.h"
-#include "Visualizer.h"
-#include "OpenALPlayer.h"
-#include "WindowsPlayer.h"
-#include "FFTFilter.h"
+#include "Utils/Resources.h"
+#include "Input/AudioFileReader.h"
+#include "Processing/FFT.h"
+#include "Utils/SampleConverter.h"
+#include "Visualization/OpenGL/Renderer.h"
+#include "Player/OpenALPlayer.h"
+#include "Player/WindowsPlayer.h"
+#include "Processing/FFTFilter.h"
 #include <thread>
 
 #undef main
@@ -13,7 +13,7 @@ int main()
 {
 	//Audio input
 	AudioSourceInfo sourceInfo;
-	sourceInfo.url = "Obsessed.mp3";
+	sourceInfo.url = "Africa.mp3";
 	AudioInput* audioInput = new AudioFileReader();
 	audioInput->setStreamSource(sourceInfo);
 	
@@ -37,7 +37,7 @@ int main()
 	
 	//Visualizer
 	AudioVisualizerInfo visualizerInfo;
-	visualizerInfo.imageURL = "Test.png";
+	visualizerInfo.imageURL = "Wallpaper.jpg";
 	visualizerInfo.intensityOffset = 0.5f;
 	visualizerInfo.intensityScale = 2.0f;
 	visualizerInfo.name = "Test";
@@ -49,6 +49,7 @@ int main()
 	visualizerInfo.tesselationLevel = fftInfo.tesselationLevel;
 	visualizerInfo.line.start = glm::vec2(-0.490625f, -0.6648148f);
 	visualizerInfo.line.end = glm::vec2(0.49270832f, -0.6648148f);
+	visualizerInfo.line.lineColor = glm::vec4(0, 1, 1, 1);
 	AudioVisualizer* visualizer = new GL::Renderer();
 	visualizer->init(visualizerInfo);
 
@@ -86,7 +87,8 @@ int main()
 	std::thread fftConverterThread(&SampleConverter::run, inputToProcessorConverter, fftInputQueue, fftOutputQueue);
 	std::thread fftThread(&AudioProcessor::run, fft, fftOutputQueue, fftProcessedQueue);
 	std::thread fftFilterThread(&AudioProcessor::run, fftFilter, fftProcessedQueue, fftFilteredQueue);
-	std::thread visualizerThread(&AudioVisualizer::run, visualizer, fftFilteredQueue);
+	//Visualizer is potentially OpenGL, which only runs on the MAIN thread
+	visualizer->run(fftFilteredQueue);
 
 	inputThread.join();
 	converterThread.join();
@@ -94,5 +96,18 @@ int main()
 	fftConverterThread.join();
 	fftFilterThread.join();
 	fftThread.join();
-	visualizerThread.join();
+
+	delete audioInput;
+	delete audioPlayer;
+	delete fft;
+	delete fftFilter;
+	delete visualizer;
+	delete inputToPlayerConverter;
+	delete inputToProcessorConverter;
+	delete inputQueue;
+	delete outputQueue;
+	delete fftInputQueue;
+	delete fftOutputQueue;
+	delete fftProcessedQueue;
+	delete fftFilteredQueue;
 }
