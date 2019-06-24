@@ -159,6 +159,12 @@
     <ClInclude Include="Visualization\OpenGL\PostProcessingShader.h">
       <Filter>Header Files\Visualization\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Visualization\OpenGL\ParticleShader.h">
+      <Filter>Header Files\Visualization\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Visualization\OpenGL\ParticleRenderer.h">
+      <Filter>Header Files\Visualization\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Input\AudioFileReader.cpp">
@@ -219,6 +225,12 @@
       <Filter>Source Files\Visualization\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Visualization\OpenGL\PostProcessingRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Visualization\OpenGL\ParticleShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Visualization\OpenGL\ParticleRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

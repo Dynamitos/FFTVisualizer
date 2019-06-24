@@ -32,6 +32,7 @@ void Renderer::init(AudioVisualizerInfo visualizerInfo)
 
 void Renderer::renderData(std::unique_ptr<SampleContainer> data)
 {
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	float* fftData = (float*)data->convertedSamples;
 	postProcessor->beginMainPass();
 	imageRenderer->render(calcBass(fftData, data->numSamples));
