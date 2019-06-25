@@ -56,6 +56,7 @@
     <ClInclude Include="Visualization\OpenGL\PostProcessingShader.h" />
     <ClInclude Include="Visualization\OpenGL\Renderer.h" />
     <ClInclude Include="Visualization\OpenGL\ShaderProgram.h" />
+    <ClInclude Include="Visualization\RandomNoise.h" />
     <ClInclude Include="Visualization\sdlutil.h" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,7 @@
     <ClCompile Include="Visualization\OpenGL\PostProcessingShader.cpp" />
     <ClCompile Include="Visualization\OpenGL\Renderer.cpp" />
     <ClCompile Include="Visualization\OpenGL\ShaderProgram.cpp" />
+    <ClCompile Include="Visualization\RandomNoise.cpp" />
     <ClCompile Include="Visualization\sdlutil.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

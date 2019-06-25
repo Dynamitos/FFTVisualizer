@@ -114,6 +114,7 @@ void OpenALPlayer::playSamples(std::unique_ptr<SampleContainer> container)
 			alGetSourcei(source, AL_BUFFERS_PROCESSED, &val);
 		} while (val <= 0);
 
+
 		alSourceUnqueueBuffers(source, 1, &buffer);
 		alBufferData(buffer, format, container->convertedSamples, container->dataSize, frequency);
 		alSourceQueueBuffers(source, 1, &buffer);

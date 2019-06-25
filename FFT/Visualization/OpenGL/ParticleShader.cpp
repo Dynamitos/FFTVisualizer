@@ -4,6 +4,7 @@ using namespace GL;
 
 ParticleShader::ParticleShader()
 {
+	init(VERT_FILE, FRAG_FILE);
 }
 
 void ParticleShader::loadViewMatrix(glm::mat4 viewMatrix)

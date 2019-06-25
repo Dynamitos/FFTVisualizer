@@ -291,3 +291,12 @@ struct SampleContainer
 	uint32_t numSamples;
 	int64_t timeStamp;
 };
+
+
+static float random(float min, float max)
+{
+	assert(max > min);
+	float seed = rand() / (float)RAND_MAX;
+	float interval = max - min;
+	return (seed * interval) + min;
+}

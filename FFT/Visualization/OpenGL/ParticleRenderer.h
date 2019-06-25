@@ -1,5 +1,6 @@
 #pragma once
 #include "ParticleShader.h"
+#include "Visualization\RandomNoise.h"
 
 class Display;
 namespace GL
@@ -7,9 +8,18 @@ namespace GL
 	class Loader;
 	struct Particle
 	{
+		glm::vec3 position;
+		glm::vec3 rotation;
+		glm::vec3 speed;
+		glm::vec2 dimensions;
+		float scale;
+		float weight;
+		float life;
+	};
+	struct PackedParticle
+	{
 		glm::vec4 positionScale;
-		glm::vec4 rotationWeight;
-		glm::vec4 speedLife;	
+		glm::vec4 rotation;
 		glm::vec2 dimensions;
 	};
 #define MAX_PARTICLES 2048
@@ -22,10 +32,12 @@ namespace GL
 		void render(float intensity);
 
 	private:
+		RandomNoise perlinNoise;
 		float counter;
 		int lastUsedParticle = 0;
-		static const int VERTEX_SIZE = sizeof(Particle);
+		static const int VERTEX_SIZE = sizeof(PackedParticle);
 		Particle particles[MAX_PARTICLES];
+		PackedParticle particleData[MAX_PARTICLES];
 		GLuint vboParticle;
 		glm::mat4 projectionMatrix;
 		glm::mat4 viewMatrix;

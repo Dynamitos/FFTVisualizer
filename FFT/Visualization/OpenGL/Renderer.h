@@ -5,6 +5,7 @@ namespace GL
 {
 	class ImageRenderer;
 	class LineRenderer;
+	class ParticleRenderer;
 	class PostProcessingRenderer;
 	class Loader;
 	class Renderer : public AudioVisualizer
@@ -21,6 +22,7 @@ namespace GL
 		float bassGain;
 		ImageRenderer* imageRenderer;
 		LineRenderer* lineRenderer;
+		ParticleRenderer* particleRenderer;
 		PostProcessingRenderer* postProcessor;
 		Loader* loader;
 		Display* display;

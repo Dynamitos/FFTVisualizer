@@ -3,6 +3,7 @@
 #include "ImageRenderer.h"
 #include "LineRenderer.h"
 #include "PostProcessingRenderer.h"
+#include "ParticleRenderer.h"
 
 using namespace GL;
 
@@ -24,6 +25,8 @@ void Renderer::init(AudioVisualizerInfo visualizerInfo)
 	imageRenderer->init(loader, visualizerInfo);
 	lineRenderer = new LineRenderer();
 	lineRenderer->init(visualizerInfo);
+	particleRenderer = new ParticleRenderer();
+	particleRenderer->init(loader, display, visualizerInfo);
 	postProcessor = new PostProcessingRenderer();
 	postProcessor->init(loader, display, visualizerInfo);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -35,8 +38,10 @@ void Renderer::renderData(std::unique_ptr<SampleContainer> data)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	float* fftData = (float*)data->convertedSamples;
 	postProcessor->beginMainPass();
-	imageRenderer->render(calcBass(fftData, data->numSamples));
+	float bass = calcBass(fftData, data->numSamples);
+	imageRenderer->render(bass);
 	lineRenderer->render(fftData);
+	particleRenderer->render(bass);
 	postProcessor->unbindCurrentFramebuffer();
 	postProcessor->render();
 	display->updateDisplay();
