@@ -20,9 +20,8 @@ namespace GL
 	{
 		glm::vec4 positionScale;
 		glm::vec4 rotation;
-		glm::vec2 dimensions;
 	};
-#define MAX_PARTICLES 2048
+#define MAX_PARTICLES 2 << 16
 	class ParticleRenderer
 	{
 	public:

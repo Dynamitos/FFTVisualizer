@@ -20,27 +20,23 @@ void ParticleRenderer::init(Loader* loader, Display* display, AudioVisualizerInf
 	viewMatrix = glm::lookAt(position, center, up);
 	projectionMatrix = glm::perspective(FOV, info.screenDimensions.x / (float)info.screenDimensions.y, NEAR_PLANE, FAR_PLANE);
 
-
 	rawModel = loader->loadToVAO(vertices, sizeof(vertices), 2);
 
 	glBindVertexArray(rawModel->vaoID);
 	glGenBuffers(1, &vboParticle);
 	glBindBuffer(GL_ARRAY_BUFFER, vboParticle);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(particles), particles, GL_STREAM_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(particleData), nullptr, GL_STREAM_DRAW);
 
 	glVertexAttribPointer(1, 4, GL_FLOAT, false, VERTEX_SIZE, (void*)offsetof(PackedParticle, positionScale));
 	glVertexAttribPointer(2, 4, GL_FLOAT, false, VERTEX_SIZE, (void*)offsetof(PackedParticle, rotation));
-	glVertexAttribPointer(3, 2, GL_FLOAT, false, VERTEX_SIZE, (void*)offsetof(PackedParticle, dimensions));
 	
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
-	glEnableVertexAttribArray(3);
 
 	glVertexAttribDivisor(0, 0);
 	glVertexAttribDivisor(1, 1);
 	glVertexAttribDivisor(2, 1);
-	glVertexAttribDivisor(3, 1);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	shader->start();
@@ -84,7 +80,8 @@ void ParticleRenderer::render(float intensity)
 	float frameTime = display->getCurrentFrameTime();
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	counter += frameTime * 1000 * intensity;
+	counter += frameTime * 10000 * intensity;
+
 
 	int numParticles = (int)counter;
 	counter -= numParticles;
@@ -98,7 +95,7 @@ void ParticleRenderer::render(float intensity)
 		p.rotation = glm::vec3(0, 0, 0);
 		p.dimensions = glm::vec2(1, 1);
 		p.life = 10.f;
-		p.scale = 0.5f;
+		p.scale = 0.1f;
 		p.weight = 0.1f;
 	}
 
@@ -108,15 +105,14 @@ void ParticleRenderer::render(float intensity)
 		Particle& p = particles[i];
 		if (p.life > 0)
 		{
-			p.position = p.position + (p.speed * frameTime * 10.f);
-			//p.rotation += p.speed * frameTime;
+			p.position += p.speed * frameTime * 10.f;
+			p.rotation += p.speed * frameTime;
 
-			//p.speed += perlinNoise.perlin(p.position) * 10.f * frameTime;
+			p.speed += perlinNoise.perlin(p.position) * 10.f * frameTime;
 			p.life -= frameTime;
 
 			particleData[length].positionScale = glm::vec4(p.position, p.scale);
 			particleData[length].rotation = glm::vec4();
-			particleData[length].dimensions = glm::vec2(p.dimensions);
 
 			length++;
 		}
@@ -130,8 +126,6 @@ void ParticleRenderer::render(float intensity)
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(PackedParticle) * length, particleData);
 	
 	glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4, length);
-
-	printf("NumParticles: %f\n", frameTime);
 
 	glBindVertexArray(0);
 	shader->stop();

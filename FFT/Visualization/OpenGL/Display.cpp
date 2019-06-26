@@ -60,10 +60,6 @@ void Display::closeDisplay()
 	glfwTerminate();
 	//system("PAUSE");
 }
-bool Display::shouldClose()
-{
-	return glfwWindowShouldClose(window);
-}
 
 void Display::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {

@@ -227,17 +227,17 @@
     <ClCompile Include="Visualization\OpenGL\PostProcessingShader.cpp">
       <Filter>Source Files\Visualization\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Visualization\OpenGL\PostProcessingRenderer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Visualization\OpenGL\ParticleRenderer.cpp">
+      <Filter>Source Files\Visualization\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Visualization\OpenGL\ParticleShader.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Visualization\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Visualization\OpenGL\ParticleRenderer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Visualization\OpenGL\PostProcessingRenderer.cpp">
+      <Filter>Source Files\Visualization\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Visualization\RandomNoise.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Visualization</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

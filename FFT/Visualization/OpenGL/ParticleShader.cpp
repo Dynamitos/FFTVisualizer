@@ -29,11 +29,10 @@ void ParticleShader::getAllUniformLocations()
 	location_viewMatrix = ShaderProgram::getUniformLocation("viewMatrix");
 }
 
+
 void ParticleShader::bindAttributes()
 {
 	ShaderProgram::bindAttribute(0, "vertex_VS_in");
-	ShaderProgram::bindAttribute(1, "position_VS_in");
+	ShaderProgram::bindAttribute(1, "positionScale_VS_in");
 	ShaderProgram::bindAttribute(2, "rotation_VS_in");
-	ShaderProgram::bindAttribute(3, "dimensions_VS_in");
-	ShaderProgram::bindAttribute(4, "scale_VS_in");
 }
