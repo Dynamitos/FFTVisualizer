@@ -1,0 +1,1 @@
+cmd='D:/Programms/CMake/bin/cmake.exe;-DUSE_SUPERBUILD=OFF;-GVisual Studio 17 2022;-Ax64;-Thost=x64;-DCMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools;<SOURCE_DIR><SOURCE_SUBDIR>'

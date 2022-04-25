@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DEE4B6A2-1AA3-3D89-B25F-35D50E4045AD}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>Visualizer</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Private\Programming\C++\FFT\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Visualizer.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Visualizer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Private\Programming\C++\FFT\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Visualizer.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Visualizer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Private\Programming\C++\FFT\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Visualizer.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Visualizer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Private\Programming\C++\FFT\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Visualizer.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Visualizer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;EBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;EBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\external\glfw\src\Debug\glfw3d.lib;opengl32.lib;glu32.lib;..\external\openal\lib\al32.lib;..\external\glad\Debug\gladd.lib;..\external\sdl\build\Debug\SDL2d.lib;..\external\ffmpeg\lib\avcodec.lib;..\external\ffmpeg\lib\avdevice.lib;..\external\ffmpeg\lib\avfilter.lib;..\external\ffmpeg\lib\avformat.lib;..\external\ffmpeg\lib\avutil.lib;..\external\ffmpeg\lib\swscale.lib;..\external\ffmpeg\lib\swresample.lib;winmm.lib;Setupapi.lib;version.lib;imm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Private/Programming/C++/FFT/build/Debug/Visualizer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Private/Programming/C++/FFT/build/Visualizer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;EBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;EBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\external\glfw\src\Debug\glfw3d.lib;opengl32.lib;glu32.lib;..\external\openal\lib\al32.lib;..\external\glad\Debug\gladd.lib;..\external\sdl\build\Debug\SDL2d.lib;..\external\ffmpeg\lib\avcodec.lib;..\external\ffmpeg\lib\avdevice.lib;..\external\ffmpeg\lib\avfilter.lib;..\external\ffmpeg\lib\avformat.lib;..\external\ffmpeg\lib\avutil.lib;..\external\ffmpeg\lib\swscale.lib;..\external\ffmpeg\lib\swresample.lib;winmm.lib;Setupapi.lib;version.lib;imm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Private/Programming/C++/FFT/build/Release/Visualizer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Private/Programming/C++/FFT/build/Visualizer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;EBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;EBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\external\glfw\src\Debug\glfw3d.lib;opengl32.lib;glu32.lib;..\external\openal\lib\al32.lib;..\external\glad\Debug\gladd.lib;..\external\sdl\build\Debug\SDL2d.lib;..\external\ffmpeg\lib\avcodec.lib;..\external\ffmpeg\lib\avdevice.lib;..\external\ffmpeg\lib\avfilter.lib;..\external\ffmpeg\lib\avformat.lib;..\external\ffmpeg\lib\avutil.lib;..\external\ffmpeg\lib\swscale.lib;..\external\ffmpeg\lib\swresample.lib;winmm.lib;Setupapi.lib;version.lib;imm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Private/Programming/C++/FFT/build/MinSizeRel/Visualizer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Private/Programming/C++/FFT/build/MinSizeRel/Visualizer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;EBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;EBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Private\Programming\C++\FFT\external\glm;D:\Private\Programming\C++\FFT\external\glfw\include;D:\Private\Programming\C++\FFT\external\glad\include;D:\Private\Programming\C++\FFT\external\openal;D:\Private\Programming\C++\FFT\external\json\include;D:\Private\Programming\C++\FFT\external\stb;D:\Private\Programming\C++\FFT\external\sdl\include;D:\Private\Programming\C++\FFT\external\ffmpeg\include;D:\Private\Programming\C++\FFT\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\external\glfw\src\Debug\glfw3d.lib;opengl32.lib;glu32.lib;..\external\openal\lib\al32.lib;..\external\glad\Debug\gladd.lib;..\external\sdl\build\Debug\SDL2d.lib;..\external\ffmpeg\lib\avcodec.lib;..\external\ffmpeg\lib\avdevice.lib;..\external\ffmpeg\lib\avfilter.lib;..\external\ffmpeg\lib\avformat.lib;..\external\ffmpeg\lib\avutil.lib;..\external\ffmpeg\lib\swscale.lib;..\external\ffmpeg\lib\swresample.lib;winmm.lib;Setupapi.lib;version.lib;imm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Private/Programming/C++/FFT/build/RelWithDebInfo/Visualizer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Private/Programming/C++/FFT/build/RelWithDebInfo/Visualizer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Private\Programming\C++\FFT\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Private/Programming/C++/FFT/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Programms\CMake\bin\cmake.exe -SD:/Private/Programming/C++/FFT -BD:/Private/Programming/C++/FFT/build --check-stamp-file D:/Private/Programming/C++/FFT/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCXXCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeRCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeSystem.cmake;D:\Private\Programming\C++\FFT\cmake\FindFFmpeg.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLAD.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLFW.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLM.cmake;D:\Private\Programming\C++\FFT\cmake\FindJSON.cmake;D:\Private\Programming\C++\FFT\cmake\FindOpenAL.cmake;D:\Private\Programming\C++\FFT\cmake\FindSTB.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindOpenGL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindSDL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindThreads.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Private/Programming/C++/FFT/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Programms\CMake\bin\cmake.exe -SD:/Private/Programming/C++/FFT -BD:/Private/Programming/C++/FFT/build --check-stamp-file D:/Private/Programming/C++/FFT/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCXXCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeRCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeSystem.cmake;D:\Private\Programming\C++\FFT\cmake\FindFFmpeg.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLAD.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLFW.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLM.cmake;D:\Private\Programming\C++\FFT\cmake\FindJSON.cmake;D:\Private\Programming\C++\FFT\cmake\FindOpenAL.cmake;D:\Private\Programming\C++\FFT\cmake\FindSTB.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindOpenGL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindSDL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindThreads.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Private/Programming/C++/FFT/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Programms\CMake\bin\cmake.exe -SD:/Private/Programming/C++/FFT -BD:/Private/Programming/C++/FFT/build --check-stamp-file D:/Private/Programming/C++/FFT/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCXXCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeRCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeSystem.cmake;D:\Private\Programming\C++\FFT\cmake\FindFFmpeg.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLAD.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLFW.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLM.cmake;D:\Private\Programming\C++\FFT\cmake\FindJSON.cmake;D:\Private\Programming\C++\FFT\cmake\FindOpenAL.cmake;D:\Private\Programming\C++\FFT\cmake\FindSTB.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindOpenGL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindSDL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindThreads.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Private/Programming/C++/FFT/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Programms\CMake\bin\cmake.exe -SD:/Private/Programming/C++/FFT -BD:/Private/Programming/C++/FFT/build --check-stamp-file D:/Private/Programming/C++/FFT/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeCXXCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeRCCompiler.cmake;D:\Private\Programming\C++\FFT\build\CMakeFiles\3.22.0-rc3\CMakeSystem.cmake;D:\Private\Programming\C++\FFT\cmake\FindFFmpeg.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLAD.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLFW.cmake;D:\Private\Programming\C++\FFT\cmake\FindGLM.cmake;D:\Private\Programming\C++\FFT\cmake\FindJSON.cmake;D:\Private\Programming\C++\FFT\cmake\FindOpenAL.cmake;D:\Private\Programming\C++\FFT\cmake\FindSTB.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindOpenGL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindSDL.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\FindThreads.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\Programms\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Private\Programming\C++\FFT\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Input\AudioFileReader.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Input\AudioFileReader.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Input\AudioInput.h" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Player\AudioPlayer.h" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Player\OpenALPlayer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Player\OpenALPlayer.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Player\WindowsPlayer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Player\WindowsPlayer.cpp" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Processing\FFT.cpp" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Processing\FFTFilter.cpp" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Processing\FourierTransform.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Utils\PacketQueue.h" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Utils\Resources.h" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Utils\SampleConverter.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Utils\SampleConverter.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Camera.h" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Display.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Display.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageRenderer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageRenderer.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageShader.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageShader.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineRenderer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineRenderer.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineShader.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineShader.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Loader.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Loader.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleRenderer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleRenderer.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleShader.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleShader.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingRenderer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingRenderer.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingShader.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingShader.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Renderer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Renderer.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ShaderProgram.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ShaderProgram.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\AudioVisualizer.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\AudioVisualizer.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\RandomNoise.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\RandomNoise.cpp" />
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\sdlutil.h" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\sdlutil.cpp" />
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\App.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Private\Programming\C++\FFT\build\ZERO_CHECK.vcxproj">
+      <Project>{CC647785-5386-3499-8251-D9997530065B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

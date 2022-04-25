@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Input\AudioFileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Player\OpenALPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Player\WindowsPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Processing\FFT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Processing\FFTFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Processing\FourierTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Utils\SampleConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Display.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\AudioVisualizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\RandomNoise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\Visualization\sdlutil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Private\Programming\C++\FFT\src\App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Input\AudioFileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Input\AudioInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Player\AudioPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Player\OpenALPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Player\WindowsPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Utils\PacketQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Utils\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Utils\SampleConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Display.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ImageShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\LineShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ParticleShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\PostProcessingShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\OpenGL\ShaderProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\AudioVisualizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\RandomNoise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Private\Programming\C++\FFT\src\Visualization\sdlutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Private\Programming\C++\FFT\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{FCA6702C-99A4-3729-948C-41790ECBB639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9EAA344B-90AB-3459-B07E-DD15773135CB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

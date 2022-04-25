@@ -1,0 +1,5 @@
+D:/Private/Programming/C++/FFT/build/CMakeFiles/Visualizer.dir
+D:/Private/Programming/C++/FFT/build/CMakeFiles/copy-binaries.dir
+D:/Private/Programming/C++/FFT/build/CMakeFiles/MusicVisualizer.dir
+D:/Private/Programming/C++/FFT/build/CMakeFiles/ALL_BUILD.dir
+D:/Private/Programming/C++/FFT/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,16 @@
+# CMake generation dependency list for this directory.
+D:/Private/Programming/C++/FFT/build/CMakeFiles/3.22.0-rc3/CMakeCCompiler.cmake
+D:/Private/Programming/C++/FFT/build/CMakeFiles/3.22.0-rc3/CMakeCXXCompiler.cmake
+D:/Private/Programming/C++/FFT/build/CMakeFiles/3.22.0-rc3/CMakeRCCompiler.cmake
+D:/Private/Programming/C++/FFT/external/glad/CMakeLists.txt
+D:/Programms/CMake/share/cmake-3.22/Modules/CMakeCInformation.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/CMakeCXXInformation.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/CMakeRCInformation.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/Compiler/MSVC-C.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/Compiler/MSVC-CXX.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/Platform/Windows-MSVC-C.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/Programms/CMake/share/cmake-3.22/Modules/Platform/Windows-MSVC.cmake

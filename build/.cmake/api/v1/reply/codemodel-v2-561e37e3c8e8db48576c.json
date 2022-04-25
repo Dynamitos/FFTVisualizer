@@ -1,0 +1,736 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "src/Input",
+					"jsonFile" : "directory-src.Input-Debug-9fa021fd1f63bad8e7a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Input"
+				},
+				{
+					"build" : "src/Player",
+					"jsonFile" : "directory-src.Player-Debug-86b8f4dbbb1bb2da30a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Player"
+				},
+				{
+					"build" : "src/Processing",
+					"jsonFile" : "directory-src.Processing-Debug-6847ffb0752ec3e55a39.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Processing"
+				},
+				{
+					"build" : "src/Utils",
+					"jsonFile" : "directory-src.Utils-Debug-c96cf8f2ee78fc8af002.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Utils"
+				},
+				{
+					"build" : "src/Visualization",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-src.Visualization-Debug-3628295bfaadc6a2023c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Visualization"
+				},
+				{
+					"build" : "src/Visualization/OpenGL",
+					"jsonFile" : "directory-src.Visualization.OpenGL-Debug-48db5f84efd4624bb5c2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "src/Visualization/OpenGL"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"name" : "MusicVisualizer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-39dcf23b01d4b6564bcf.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MusicVisualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MusicVisualizer-Debug-9158ab55304ad22f4199.json",
+					"name" : "MusicVisualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Visualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Visualizer-Debug-703db932a63c0905f058.json",
+					"name" : "Visualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-e7fa42bd22d197965f77.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "copy-binaries::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-copy-binaries-Debug-50a0ac0b41fab9ea44aa.json",
+					"name" : "copy-binaries",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"jsonFile" : "directory-src-Release-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "src/Input",
+					"jsonFile" : "directory-src.Input-Release-9fa021fd1f63bad8e7a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Input"
+				},
+				{
+					"build" : "src/Player",
+					"jsonFile" : "directory-src.Player-Release-86b8f4dbbb1bb2da30a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Player"
+				},
+				{
+					"build" : "src/Processing",
+					"jsonFile" : "directory-src.Processing-Release-6847ffb0752ec3e55a39.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Processing"
+				},
+				{
+					"build" : "src/Utils",
+					"jsonFile" : "directory-src.Utils-Release-c96cf8f2ee78fc8af002.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Utils"
+				},
+				{
+					"build" : "src/Visualization",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-src.Visualization-Release-3628295bfaadc6a2023c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Visualization"
+				},
+				{
+					"build" : "src/Visualization/OpenGL",
+					"jsonFile" : "directory-src.Visualization.OpenGL-Release-48db5f84efd4624bb5c2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "src/Visualization/OpenGL"
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"name" : "MusicVisualizer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-39dcf23b01d4b6564bcf.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MusicVisualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MusicVisualizer-Release-9158ab55304ad22f4199.json",
+					"name" : "MusicVisualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Visualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Visualizer-Release-c52c3996528ba024af3a.json",
+					"name" : "Visualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-e7fa42bd22d197965f77.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "copy-binaries::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-copy-binaries-Release-50a0ac0b41fab9ea44aa.json",
+					"name" : "copy-binaries",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"jsonFile" : "directory-src-MinSizeRel-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "src/Input",
+					"jsonFile" : "directory-src.Input-MinSizeRel-9fa021fd1f63bad8e7a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Input"
+				},
+				{
+					"build" : "src/Player",
+					"jsonFile" : "directory-src.Player-MinSizeRel-86b8f4dbbb1bb2da30a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Player"
+				},
+				{
+					"build" : "src/Processing",
+					"jsonFile" : "directory-src.Processing-MinSizeRel-6847ffb0752ec3e55a39.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Processing"
+				},
+				{
+					"build" : "src/Utils",
+					"jsonFile" : "directory-src.Utils-MinSizeRel-c96cf8f2ee78fc8af002.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Utils"
+				},
+				{
+					"build" : "src/Visualization",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-src.Visualization-MinSizeRel-3628295bfaadc6a2023c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Visualization"
+				},
+				{
+					"build" : "src/Visualization/OpenGL",
+					"jsonFile" : "directory-src.Visualization.OpenGL-MinSizeRel-48db5f84efd4624bb5c2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "src/Visualization/OpenGL"
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"name" : "MusicVisualizer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-39dcf23b01d4b6564bcf.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MusicVisualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MusicVisualizer-MinSizeRel-9158ab55304ad22f4199.json",
+					"name" : "MusicVisualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Visualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Visualizer-MinSizeRel-9820a196d7c1d7145876.json",
+					"name" : "Visualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-e7fa42bd22d197965f77.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "copy-binaries::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-copy-binaries-MinSizeRel-50a0ac0b41fab9ea44aa.json",
+					"name" : "copy-binaries",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"jsonFile" : "directory-src-RelWithDebInfo-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "src/Input",
+					"jsonFile" : "directory-src.Input-RelWithDebInfo-9fa021fd1f63bad8e7a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Input"
+				},
+				{
+					"build" : "src/Player",
+					"jsonFile" : "directory-src.Player-RelWithDebInfo-86b8f4dbbb1bb2da30a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Player"
+				},
+				{
+					"build" : "src/Processing",
+					"jsonFile" : "directory-src.Processing-RelWithDebInfo-6847ffb0752ec3e55a39.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Processing"
+				},
+				{
+					"build" : "src/Utils",
+					"jsonFile" : "directory-src.Utils-RelWithDebInfo-c96cf8f2ee78fc8af002.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Utils"
+				},
+				{
+					"build" : "src/Visualization",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-src.Visualization-RelWithDebInfo-3628295bfaadc6a2023c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/Visualization"
+				},
+				{
+					"build" : "src/Visualization/OpenGL",
+					"jsonFile" : "directory-src.Visualization.OpenGL-RelWithDebInfo-48db5f84efd4624bb5c2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "src/Visualization/OpenGL"
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"name" : "MusicVisualizer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-39dcf23b01d4b6564bcf.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MusicVisualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MusicVisualizer-RelWithDebInfo-9158ab55304ad22f4199.json",
+					"name" : "MusicVisualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Visualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Visualizer-RelWithDebInfo-59b88141f1b194ef3e52.json",
+					"name" : "Visualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-e7fa42bd22d197965f77.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "copy-binaries::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-copy-binaries-RelWithDebInfo-50a0ac0b41fab9ea44aa.json",
+					"name" : "copy-binaries",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Private/Programming/C++/FFT/build",
+		"source" : "D:/Private/Programming/C++/FFT"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

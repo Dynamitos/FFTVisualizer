@@ -1,0 +1,27 @@
+target_sources(Visualizer
+    PRIVATE
+        Camera.h
+        Display.h
+        Display.cpp
+        ImageRenderer.h
+        ImageRenderer.cpp
+        ImageShader.h
+        ImageShader.cpp
+        LineRenderer.h
+        LineRenderer.cpp
+        LineShader.h
+        LineShader.cpp
+        Loader.h
+        Loader.cpp
+        ParticleRenderer.h
+        ParticleRenderer.cpp
+        ParticleShader.h
+        ParticleShader.cpp
+        PostProcessingRenderer.h
+        PostProcessingRenderer.cpp
+        PostProcessingShader.h
+        PostProcessingShader.cpp
+        Renderer.h
+        Renderer.cpp
+        ShaderProgram.h
+        ShaderProgram.cpp)
